@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星火動態 | 長榮校友會</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="detail-page-body">
+
+    <header class="site-header">
+        <a href="index.html" class="brand-link">
+            <img src="cjshs.png" alt="長榮校徽" class="school-logo-img">
+            <div class="logo-title">
+                <span class="sub">我是長榮人</span>
+                <span class="main">星火回歸</span>
+            </div>
+        </a>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle-input">
+        <label for="menu-toggle" class="hamburger-btn">
+            <span></span><span></span><span></span>
+        </label>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html#networking">星火生態圈</a></li>
+                <li><a href="index.html#mentorship">職涯引路</a></li>
+                <li><a href="index.html#events">校友活動</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="detail-container">
+        <article class="article-inner">
+            
+            <div class="article-breadcrumbs">
+                <a href="index.html">首頁</a> ➔ <a href="index.html#news">最新消息</a> ➔ <span id="js-meta-category">載入中</span>
+            </div>
+
+            <header class="article-header">
+                <div class="article-meta">
+                    <span class="article-date" id="js-news-date">----.--.--</span>
+                    <span class="article-badge" id="js-news-category">Loading</span>
+                </div>
+                <h1 class="article-main-title" id="js-news-title">正在載入精彩內容...</h1>
+            </header>
+
+            <div class="article-featured-image-box" id="js-media-container">
+                <img src="" alt="新聞配圖" id="js-news-img" class="article-main-img">
+            </div>
+
+            <div class="article-content-body" id="js-news-content"></div>
+
+            <div class="article-footer">
+                <a href="index.html#news" class="btn-back-to-news">➔ 返回最新消息</a>
+            </div>
+
+        </article>
+    </main>
+
+    <script src="news-data.js"></script>
+    <script src="detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,1937 @@
+/* ==========================================================================
+   1. 歷史感色調與變數定義
+   ========================================================================== */
+:root {
+    --bg-antique: #F4F0EA;       /* 溫潤古董米白 */
+    --text-dark: #1A1A1A;        /* 深炭黑 */
+    --cj-green: #0D3B2B;         /* 經典長榮綠 */
+    --cj-gold: #C5A059;          /* 琥珀金 */
+    --white-alpha: rgba(255, 255, 255, 0.75);
+    --nav-bg: rgba(244, 240, 234, 0.85); /* 導覽列毛玻璃底色 */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-antique);
+    color: var(--text-dark);
+    font-family: 'Noto Sans TC', sans-serif;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. 導覽列設計（電腦版）
+   ========================================================================== */
+.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    z-index: 10;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(13, 59, 43, 0.05);
+}
+
+/* ✨ 調整：整塊合併的超連結區域 */
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none; /* 移除超連結下底線 */
+    color: var(--text-dark);
+    transition: opacity 0.3s ease;
+}
+
+.brand-link:hover {
+    opacity: 0.8; /* 滑過時有微小的互動感 */
+}
+
+/* ✨ 調整：真正的長榮校徽圖片設定 */
+.school-logo-img {
+    height: 45px; /* 固定高度，寬度會自動按比例縮放 */
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-title {
+    font-family: 'Noto Serif TC', serif;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 2px;
+}
+
+.logo-title .sub {
+    font-size: 10px;
+    font-weight: 700;
+    opacity: 0.6;
+}
+
+.logo-title .main {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 1px;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 50px;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: var(--cj-green);
+}
+
+.menu-toggle-input, .hamburger-btn {
+    display: none;
+}
+
+/* ==========================================================================
+   3. 主視覺區佈局 (Hero Section) - 電腦版
+   ========================================================================== */
+.immersive-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 750px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* ⚠️ 提示：未來自行拍攝後，將下方的網址改為本機的照片檔案路徑 */
+    background-image: url('images/cjshs-alumni.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: sepia(6%) contrast(95%);
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(244, 240, 234, 0.3) 0%, rgba(244, 240, 234, 0.6) 100%);
+    z-index: 2;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 28%;
+    bottom: 8%;
+    left: 10%;
+    width: 1.5px;
+    background-color: var(--white-alpha);
+    z-index: 4;
+}
+
+.hero-content-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 1440px;
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 160px; 
+    padding-bottom: 80px;
+    z-index: 3;
+}
+
+.brand-title {
+    align-self: flex-start;
+    margin-left: 40px;
+}
+
+.brand-title h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 72px;
+    font-weight: 500;
+    color: var(--text-dark);
+    line-height: 1.25;
+    letter-spacing: 8px;
+}
+
+.welcome-card {
+    align-self: flex-end;
+    text-align: right;
+    max-width: 520px;
+    padding: 40px;
+    background: rgba(244, 240, 234, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 2px;
+}
+
+.card-subtitle {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--cj-green);
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+}
+
+.card-prose {
+    font-size: 15px;
+    color: #333333;
+    line-height: 2.2;
+    letter-spacing: 1.8px;
+    margin-bottom: 35px;
+    font-weight: 300;
+}
+
+.btn-home {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--cj-green);
+    color: var(--bg-antique);
+    padding: 15px 36px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 15px rgba(13, 59, 43, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-home:hover {
+    background-color: transparent;
+    color: var(--cj-green);
+    border: 1px solid var(--cj-green);
+    transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   4. RWD 全面優化（徹底解決手機上下空白問題）
+   ========================================================================== */
+@media (max-width: 992px) {
+    .site-header {
+        padding: 15px 20px;
+        position: fixed; 
+    }
+
+    .hamburger-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 18px;
+        cursor: pointer;
+        z-index: 12;
+    }
+
+    .hamburger-btn span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--text-dark);
+        transition: all 0.3s ease;
+    }
+
+    .menu-toggle-input:checked ~ .hamburger-btn span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle-input:checked ~ .hamburger-btn span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle-input:checked ~ .hamburger-btn span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--bg-antique);
+        padding: 120px 40px;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+        transition: right 0.4s ease;
+        z-index: 11;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    .main-nav ul li a {
+        font-size: 18px;
+    }
+
+    .menu-toggle-input:checked ~ .main-nav {
+        right: 0;
+    }
+
+    /* --- 手機版縱向排列調整 --- */
+    .immersive-hero {
+        flex-direction: column;
+        height: auto;
+        min-height: auto;
+        padding-top: 80px; /* 留出空間給 Fixed Header */
+        background-color: var(--bg-antique);
+    }
+
+    /* ✨ 關鍵修正：將 contain 改回 cover 並固定視窗高度，徹底消滅上下空白 */
+    .hero-bg-image {
+        position: relative;
+        width: 100%;
+        height: 40vh; /* 固定佔用手機螢幕高度的 40% */
+        background-size: cover; /* ✨ 填滿整個區塊，絕不留黑/白邊 */
+        background-position: center; /* 以相片正中央為基準進行縮放 */
+        background-repeat: no-repeat;
+    }
+
+    .hero-overlay, .timeline-line {
+        display: none; 
+    }
+
+    .hero-content-wrapper {
+        width: 100%;
+        height: auto;
+        padding: 35px 25px;
+    }
+
+    .brand-title {
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .brand-title h1 {
+        font-size: 40px;
+        letter-spacing: 4px;
+    }
+
+    .welcome-card {
+        width: 100%;
+        background: transparent; 
+        padding: 0;
+        text-align: left;
+        box-shadow: none;
+    }
+
+    .card-subtitle {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .card-prose {
+        font-size: 14px;
+        line-height: 2;
+    }
+
+    .cta-wrapper {
+        justify-content: flex-start;
+    }
+    
+    .btn-home {
+        width: 100%; 
+        text-align: center;
+    }
+}
+/* ==========================================================================
+   5. 校友會核心願景介紹區樣式 (Section 2 - 左中右橫向大排版)
+   ========================================================================== */
+.visions-section {
+    background-color: var(--cj-green); /* 背景切換為深長榮綠 */
+    color: var(--bg-antique);         /* 文字反白為古董米白 */
+    padding: 140px 0;                 /* 拉大上下留白，彰顯大氣 */
+    width: 100%;
+    position: relative;
+    border-top: 1px solid rgba(244, 240, 234, 0.1);
+}
+
+.visions-wrapper {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 80px;
+    /* ✨ 關鍵核心：電腦版用 flex 佈局，將「左側標題」與「右側卡片組」並排開來 */
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+/* 左側標題區 (佔 25% 左右的寬度) */
+.visions-header {
+    flex: 0 0 240px; /* 固定寬度，不隨畫面縮放變形 */
+    position: sticky;
+    top: 140px;      /* 滾動時標題可以优雅地定在畫面上 */
+}
+
+.visions-header .vision-tag {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--cj-gold); /* 琥珀金 */
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.visions-header .vision-section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    line-height: 1.4;
+}
+
+/* 右側三卡片區域 (自動填滿剩餘的 75% 寬度) */
+.visions-grid {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 內部分成左、中、右三欄 */
+    gap: 0;
+}
+
+/* 單個願景卡片 */
+.vision-card {
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 450px;
+    transition: background-color 0.4s ease;
+    /* 卡片之間加上精細的直立線，呼應你的極簡線條骨架 */
+    border-left: 1px solid rgba(244, 240, 234, 0.15);
+}
+
+/* 最後一張卡片的右側也補上一條細線，維持視覺對稱平衡 */
+.vision-card:last-child {
+    border-right: 1px solid rgba(244, 240, 234, 0.15);
+}
+
+.vision-card:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.card-num {
+    font-size: 14px;
+    font-family: 'Noto Serif TC', serif;
+    color: var(--cj-gold);
+    font-weight: 700;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.card-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+
+.card-desc {
+    font-size: 14px;
+    line-height: 2.1;
+    color: rgba(244, 240, 234, 0.7);
+    letter-spacing: 1px;
+    font-weight: 300;
+    margin-bottom: 40px;
+    flex-grow: 1;
+}
+
+.card-link-btn {
+    align-self: flex-start;
+    text-decoration: none;
+    color: var(--cj-gold);
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.card-link-btn:hover {
+    color: var(--bg-antique);
+    border-bottom: 1px solid var(--bg-antique);
+    transform: translateX(5px);
+}
+
+/* ==========================================================================
+   Section 2 的 RWD 行動裝置相容 (切換回縱向單欄，完美適應手機)
+   ========================================================================== */
+@media (max-width: 1200px) {
+    /* 針對中等螢幕（如 iPad Pro），稍微縮小卡片間距和字體 */
+    .visions-wrapper {
+        padding: 0 40px;
+        gap: 30px;
+    }
+    .visions-header {
+        flex: 0 0 180px;
+    }
+    .visions-header .vision-section-title {
+        font-size: 32px;
+    }
+    .vision-card {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .visions-section {
+        padding: 80px 0;
+    }
+
+    /* ✨ 手機版重置：取消 flex，改回正常的垂直堆疊 */
+    .visions-wrapper {
+        padding: 0 25px;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .visions-header {
+        flex: none;
+        width: 100%;
+        position: static; /* 取消黏性定位 */
+        text-align: center;
+    }
+
+    .visions-header .vision-section-title {
+        font-size: 28px;
+    }
+
+    /* ✨ 手機版重置：卡片從橫向 3 欄變回縱向 1 欄 */
+    .visions-grid {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .vision-card {
+        padding: 40px 10px;
+        min-height: auto;
+        border-left: none; /* 移除直立線 */
+        border-right: none;
+        border-bottom: 1px solid rgba(244, 240, 234, 0.15); /* 改為上下細線分隔 */
+    }
+
+    .vision-card:last-child {
+        border-bottom: none;
+    }
+
+    .card-title {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+    
+    .card-link-btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        border: 1px solid rgba(197, 160, 89, 0.4);
+    }
+    
+    .card-link-btn:hover {
+        background-color: var(--cj-gold);
+        color: var(--cj-green);
+    }
+}
+/* ==========================================================================
+   6. 最新消息與星火動態樣式 (Section 3 - News)
+   ========================================================================== */
+.news-section {
+    background-color: var(--bg-antique); /* 順暢回到古董米白背景，產生呼吸感 */
+    color: var(--text-dark);
+    padding: 140px 0;
+    width: 100%;
+    border-top: 1px solid rgba(13, 59, 43, 0.05);
+}
+
+.news-wrapper {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 80px;
+}
+
+/* 區塊頂部大標 */
+.news-header {
+    margin-bottom: 60px;
+    text-align: left;
+}
+
+.news-header .news-tag {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--cj-gold); /* 琥珀金 */
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.news-header .news-section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    color: var(--cj-green); /* 長榮綠大標 */
+}
+
+/* 最新消息網格卡片牆（2x2 非對稱現代排版） */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 電腦版切為兩大欄 */
+    gap: 40px;
+}
+
+/* 單個消息卡片基礎設定 */
+.news-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(13, 59, 43, 0.06);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(13, 59, 43, 0.04);
+    border-color: rgba(13, 59, 43, 0.15);
+}
+
+/* 精選大卡片：橫跨電腦版的左右兩欄 (2欄寬) */
+.featured-card {
+    grid-column: span 2;
+    flex-direction: row; /* 電腦版大卡片改為「左圖右文」並排 */
+}
+
+/* 卡片圖片容器 */
+.news-img-box {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--bg-antique);
+}
+
+/* 精選大卡片的圖片在電腦版佔 50% 寬度 */
+.featured-card .news-img-box {
+    width: 50%;
+    min-height: 100%;
+}
+
+.news-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 16 / 10; /* 固定圖片比例 */
+    transition: transform 0.6s ease;
+}
+
+.news-card:hover .news-img {
+    transform: scale(1.03); /* 滑過時圖片細微放大 */
+}
+
+/* 卡片文字內容區 */
+.news-content {
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+/* 精選大卡片的文字區在電腦版也佔 50% */
+.featured-card .news-content {
+    width: 50%;
+    padding: 45px;
+}
+
+.news-meta {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.news-date {
+    color: #888888;
+    font-weight: 400;
+}
+
+.news-category {
+    color: var(--cj-gold);
+    font-weight: 500;
+}
+
+.news-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+/* 大卡片的標題可以再大氣一點 */
+.featured-card .news-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.news-excerpt {
+    font-size: 14px;
+    line-height: 2;
+    color: #555555;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    margin-bottom: 30px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 自動控制文字最多顯示 3 行，超出變省略號 */
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.news-read-more {
+    text-decoration: none;
+    color: var(--cj-green);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    align-self: flex-start;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.news-read-more:hover {
+    color: var(--cj-gold);
+    border-bottom: 1px solid var(--cj-gold);
+}
+
+/* ==========================================================================
+   Section 3 的 RWD 行動裝置相容 (極致卡片清單模式)
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .news-wrapper {
+        padding: 0 40px;
+    }
+    .featured-card .news-title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 992px) {
+    .news-section {
+        padding: 80px 0;
+    }
+
+    .news-wrapper {
+        padding: 0 25px;
+    }
+
+    .news-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .news-header .news-section-title {
+        font-size: 28px;
+    }
+
+    /* 手機版重置：卡片牆全部變回直向單欄排列 */
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* 精選大卡片重置：取消跨欄，改回正常的上下圖文排列 */
+    .featured-card {
+        grid-column: auto;
+        flex-direction: column;
+    }
+
+    .featured-card .news-img-box,
+    .featured-card .news-content {
+        width: 100%;
+    }
+
+    .featured-card .news-content {
+        padding: 30px 20px;
+    }
+
+    .news-content {
+        padding: 30px 20px;
+    }
+
+    .news-title {
+        font-size: 19px;
+    }
+
+    .featured-card .news-title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .news-excerpt {
+        font-size: 13.5px;
+        margin-bottom: 25px;
+    }
+    
+    .news-read-more {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        border: 1px solid rgba(13, 59, 43, 0.15);
+    }
+    
+    .news-read-more:hover {
+        background-color: var(--cj-green);
+        color: var(--bg-antique);
+        border-color: var(--cj-green);
+    }
+}
+/* 最新消息網格卡片牆 */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 40px;
+    align-items: start; /* ✨ 加這一行：確保常規卡片在並排時，維持自身高度不被硬性拉伸 */
+}
+/* ==========================================================================
+   7. 動態新聞內頁專用樣式 (News Detail Page)
+   ========================================================================== */
+.detail-page-body {
+    padding-top: 100px; /* 留空間給固定導覽列 */
+}
+
+.detail-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.article-inner {
+    width: 100%;
+    max-width: 800px; /* 限制寬度在 800px，最符合人類眼球閱讀長文的舒適寬度 */
+    padding: 20px 0;
+}
+
+.article-breadcrumbs {
+    font-size: 13px;
+    color: #888888;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+.article-breadcrumbs a {
+    text-decoration: none;
+    color: #666666;
+    transition: color 0.3s;
+}
+
+.article-breadcrumbs a:hover {
+    color: var(--cj-green);
+}
+
+.article-header {
+    margin-bottom: 40px;
+}
+
+.article-meta {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.article-date {
+    font-size: 14px;
+    color: #777777;
+    letter-spacing: 1px;
+}
+
+.article-badge {
+    background-color: var(--cj-green);
+    color: var(--bg-antique);
+    font-size: 12px;
+    padding: 4px 12px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+.article-main-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--text-dark);
+    letter-spacing: 1px;
+}
+
+/* 核心大圖大氣排版 */
+.article-featured-image-box {
+    width: 100%;
+    margin-bottom: 40px;
+    box-shadow: 0 15px 30px rgba(13, 59, 43, 0.04);
+}
+
+.article-main-img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover; /* 確保照片不變形 */
+    display: block;
+}
+
+/* 長內文細緻排版（極簡人文感） */
+.article-content-body {
+    font-size: 16px;
+    line-height: 2.3; /* 拉大行距，營造閱讀舒適感 */
+    letter-spacing: 1.5px;
+    color: #333333;
+    font-weight: 300;
+}
+
+.article-content-body p {
+    margin-bottom: 30px; /* 段落與段落之間留空 */
+    text-align: justify; /* 文字左右齊行 */
+}
+
+.article-footer {
+    margin-top: 60px;
+    border-top: 1px solid rgba(13, 59, 43, 0.1);
+    padding-top: 40px;
+}
+
+.btn-back-to-news {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--cj-green);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    transition: all 0.3s;
+}
+
+.btn-back-to-news:hover {
+    color: var(--cj-gold);
+    transform: translateX(-5px); /* 往左細微位移，暗示回去 */
+}
+
+/* 內頁手機版 RWD 調整 */
+@media (max-width: 768px) {
+    .article-main-title {
+        font-size: 26px;
+    }
+    .article-content-body {
+        font-size: 15px;
+        line-height: 2;
+    }
+}
+/* ==========================================================================
+   8. 響應式 YouTube 影片內嵌防破版樣式
+   ========================================================================== */
+.video-responsive-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 關鍵精髓：高寬比 9 / 16 = 0.5625，強制鎖定完美的 16:9 比例 */
+    height: 0;
+    overflow: hidden;
+    background-color: #000000; /* 載入前呈現高級黑色基底 */
+}
+
+.video-responsive-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+/* ==========================================================================
+   9. 歷年公告 · 歷史訊息列表區樣式 (Archived News List)
+   ========================================================================== */
+.history-news-section {
+    margin-top: 80px;
+    border-top: 2px solid var(--cj-green); /* 用一條扎實的長榮綠粗線與上方卡片區隔 */
+    padding-top: 50px;
+}
+
+.history-list-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+    color: var(--cj-green);
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.history-list-container {
+    list-style: none;
+    width: 100%;
+}
+
+.history-item {
+    border-bottom: 1px solid rgba(13, 59, 43, 0.08); /* 細緻的橫向底線 */
+}
+
+.history-item-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 22px 10px;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+/* 歷史列表滑過時的優雅奢華反饋 */
+.history-item-link:hover {
+    background-color: rgba(13, 59, 43, 0.02);
+    padding-left: 20px; /* 整行文字細微右移，暗示可以點擊 */
+}
+
+.history-item-link:hover .history-item-title {
+    color: var(--cj-gold); /* 標題滑過時變金黃色 */
+}
+
+.history-item-link:hover .history-item-arrow {
+    transform: translateX(5px);
+    color: var(--cj-gold);
+}
+
+/* 列表左側的時間與標籤 */
+.history-item-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 0 0 240px; /* 固定寬度，排版超整齊 */
+}
+
+.history-item-meta .h-date {
+    font-size: 14px;
+    color: #888888;
+    letter-spacing: 0.5px;
+}
+
+.history-item-meta .h-badge {
+    font-size: 11px;
+    border: 1px solid rgba(13, 59, 43, 0.2);
+    color: var(--cj-green);
+    padding: 2px 10px;
+    letter-spacing: 1px;
+}
+
+/* 列表標題（自動填滿中間剩餘寬度） */
+.history-item-title {
+    flex-grow: 1;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    /* 防破版：如果歷史消息標題太長，在電腦版自動變省略號 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-shadow: none;
+    text-overflow: ellipsis;
+    padding-right: 40px;
+}
+
+/* 右側極簡小箭頭 */
+.history-item-arrow {
+    font-size: 12px;
+    color: #BBBBBB;
+    transition: transform 0.3s, color 0.3s;
+}
+
+/* 歷史消息列表的手機版 RWD 優化 */
+@media (max-width: 768px) {
+    .history-item-link {
+        flex-direction: column; /* 手機版打破水平，改為上下排列 */
+        align-items: flex-start;
+        gap: 10px;
+        padding: 18px 5px;
+    }
+    
+    .history-item-link:hover {
+        padding-left: 5px; /* 手機版取消右移，避免超出螢幕 */
+    }
+
+    .history-item-meta {
+        flex: none;
+        width: 100%;
+        gap: 15px;
+    }
+    
+    .history-item-title {
+        width: 100%;
+        white-space: normal; /* 手機版容許換行，字才看得到 */
+        padding-right: 0;
+        line-height: 1.4;
+    }
+    
+    .history-item-arrow {
+        display: none; /* 手機版隱藏箭頭，維持畫面乾淨 */
+    }
+}
+/* ==========================================================================
+   10. 沉穩大氣頁尾樣式 (Footer & CTA)
+   ========================================================================== */
+.site-footer {
+    background-color: var(--cj-green); /* 切換回深長榮綠，收尾沉穩 */
+    color: var(--bg-antique);         /* 文字反白為古董米白 */
+    width: 100%;
+    position: relative;
+    border-top: 1px solid rgba(244, 240, 234, 0.1);
+}
+
+/* 上半部：感性導流區 (CTA) */
+.footer-cta-container {
+    padding: 120px 20px;
+    text-align: center;
+    background-image: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.05) 0%, transparent 70%); /* 細微的琥珀金核心微光特效 */
+    border-bottom: 1px solid rgba(244, 240, 234, 0.08);
+}
+
+.cta-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-tag {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--cj-gold);
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.cta-heading {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.cta-prose {
+    font-size: 15px;
+    line-height: 2.1;
+    color: rgba(244, 240, 234, 0.7);
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 45px;
+}
+
+/* 終點的超大亮眼按鈕 */
+.btn-footer-action {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--cj-gold);
+    color: var(--cj-green);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 18px 45px;
+    border: 1px solid var(--cj-gold);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn-footer-action:hover {
+    background-color: transparent;
+    color: var(--cj-gold);
+    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.15);
+    transform: translateY(-3px);
+}
+
+/* 下半部：正式版權與校名宣告列 */
+.footer-bottom-bar {
+    padding: 40px 0;
+    background-color: rgba(0, 0, 0, 0.15); /* 比上方再稍微深一點點的綠黑色 */
+}
+
+.footer-bottom-wrapper {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 左側校徽組 */
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-logo {
+    height: 40px;
+    width: auto;
+    opacity: 0.9;
+}
+
+.footer-brand-txt {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-brand-txt .tw {
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.footer-brand-txt .en {
+    font-size: 10px;
+    color: rgba(244, 240, 234, 0.5);
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+
+/* 右側版權組 */
+.footer-meta-links {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.footer-meta-links .copyright {
+    font-size: 12px;
+    color: rgba(244, 240, 234, 0.4);
+    letter-spacing: 0.5px;
+}
+
+.btn-scroll-top {
+    text-decoration: none;
+    color: var(--cj-gold);
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.btn-scroll-top:hover {
+    color: var(--bg-antique);
+}
+
+/* ==========================================================================
+   頁尾行動裝置 RWD 完美適應
+   ========================================================================== */
+@media (max-width: 992px) {
+    .footer-bottom-wrapper {
+        padding: 0 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-cta-container {
+        padding: 80px 20px;
+    }
+    
+    .cta-heading {
+        font-size: 24px;
+    }
+    
+    .cta-prose {
+        font-size: 14px;
+        line-height: 1.9;
+    }
+    
+    .btn-footer-action {
+        width: 100%; /* 手機版按鈕滿版好點擊 */
+        padding: 16px 20px;
+        font-size: 14px;
+    }
+
+    .footer-bottom-wrapper {
+        flex-direction: column; /* 手機版改垂直堆疊，文字置中 */
+        gap: 30px;
+        padding: 0 25px;
+        text-align: center;
+    }
+    
+    .footer-brand {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .footer-meta-links {
+        align-items: center;
+        text-align: center;
+    }
+}
+/* ==========================================================================
+   Section 3 & 頁尾 的 RWD 行動裝置相容 (完美融合、一行一塊優化)
+   ========================================================================== */
+@media (max-width: 992px) {
+    /* 1. 區塊基本微調 */
+    .news-section {
+        padding: 80px 0;
+    }
+
+    .news-wrapper {
+        padding: 0 25px;
+    }
+
+    .news-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .news-header .news-section-title {
+        font-size: 28px;
+    }
+
+    /* 2. 核心大網格重置：徹底打碎並排，強制「一行一塊」 */
+    .news-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+
+    /* 3. 頭條大卡片重置：徹底取消電腦版「左圖右文」模式，改為「上圖下文」垂直堆疊 */
+    .featured-card {
+        grid-column: auto !important;
+        flex-direction: column !important;
+    }
+
+    /* 4. 寬度全數歸一：確保所有卡片的圖片、內文容器在手機上都是 100% 滿幅 */
+    .featured-card .news-img-box,
+    .featured-card .news-content,
+    .news-img-box,
+    .news-content {
+        width: 100% !important;
+    }
+
+    /* 5. 圖片比例固定，防擠壓變形 */
+    .news-img {
+        aspect-ratio: 16 / 10;
+        height: auto;
+    }
+
+    /* 6. 卡片內襯與文字微調 */
+    .featured-card .news-content,
+    .news-content {
+        padding: 30px 20px !important;
+    }
+
+    .news-title {
+        font-size: 19px !important;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+
+    .featured-card .news-title {
+        font-size: 20px !important;
+    }
+
+    .news-excerpt {
+        font-size: 13.5px;
+        line-height: 1.8;
+        margin-bottom: 25px;
+    }
+    
+    /* 7. 按鈕改為手機好點擊的滿版大按鈕 */
+    .news-read-more {
+        display: block !important;
+        width: 100% !important;
+        text-align: center;
+        padding: 12px;
+        background-color: transparent;
+        border: 1px solid rgba(13, 59, 43, 0.15);
+        transition: all 0.3s;
+    }
+    
+    .news-read-more:hover {
+        background-color: var(--cj-green);
+        color: var(--bg-antique);
+        border-color: var(--cj-green);
+    }
+}
+/* ==========================================================================
+   11. 大字版 Footer 資訊層樣式 (Fat Footer Directory)
+   ========================================================================== */
+.footer-directory-container {
+    width: 100%;
+    padding: 80px 0 100px 0; /* 留出大氣的上下呼吸空間 */
+    background-color: rgba(0, 0, 0, 0.08); /* 比上方再稍微暗一點點，產生層次 */
+    border-bottom: 1px solid rgba(244, 240, 234, 0.05);
+}
+
+.directory-wrapper {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 100px;
+    /* 用三欄網格將左、中、右整齊排開 */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+}
+
+.dir-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* 統一文字點綴顏色 */
+.gold-text {
+    color: var(--cj-gold);
+}
+
+/* --- 左欄專屬設定 --- */
+.dir-brand-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: var(--bg-antique);
+    margin-bottom: 10px;
+}
+
+.dir-brand-en {
+    font-size: 14px;
+    color: rgba(244, 240, 234, 0.5);
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+/* 完美復刻截圖中的小膠囊標籤 */
+.dir-version-tag {
+    font-size: 11px;
+    color: var(--cj-gold);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    padding: 5px 16px;
+    border-radius: 20px; /* 兩側圓角 */
+    letter-spacing: 1px;
+    font-weight: 400;
+    background-color: rgba(197, 160, 89, 0.02);
+}
+
+/* --- 中、右欄小標題與裝飾線 --- */
+.dir-section-title {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--cj-gold);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+/* 完美復刻截圖中標題下方那條細緻的雙橫線/長橫線互動 */
+.dir-divider {
+    width: 35px;
+    height: 1px;
+    background-color: rgba(197, 160, 89, 0.4);
+    margin-bottom: 25px;
+}
+
+/* --- 列表文字細緻排版 --- */
+.dir-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px; /* 清爽的行距 */
+}
+
+.dir-list li {
+    font-size: 13.5px;
+    color: rgba(244, 240, 234, 0.65); /* 溫柔的低調白，方便長時間閱讀 */
+    letter-spacing: 1.5px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   大字版 Footer 手機版 RWD 完美破版防護
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .directory-wrapper {
+        padding: 0 40px;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-directory-container {
+        padding: 60px 0;
+    }
+
+    /* 手機版打破三欄橫排，自動切換成單欄垂直向下排 */
+    .directory-wrapper {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding: 0 25px;
+    }
+
+    .dir-col {
+        align-items: center; /* 手機版文字內容一律優雅置中 */
+        text-align: center;
+    }
+
+    .dir-divider {
+        margin: 0 auto 20px auto; /* 裝飾細線同樣置中 */
+    }
+
+    .dir-brand-en {
+        margin-bottom: 20px;
+    }
+}
+/* ==========================================================================
+   10. 精簡一體化頁尾大總管樣式 (Unified Footer Styles)
+   ========================================================================== */
+.site-footer {
+    background-color: var(--cj-green); /* 全面回歸長榮深綠 */
+    color: var(--bg-antique);
+    width: 100%;
+    position: relative;
+    border-top: 1px solid rgba(244, 240, 234, 0.1);
+}
+
+/* 上半部感性導流區維持原樣 */
+.footer-cta-container {
+    padding: 100px 20px;
+    text-align: center;
+    background-image: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.04) 0%, transparent 70%);
+}
+
+.cta-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-tag {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--cj-gold);
+    display: block;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.cta-heading {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.cta-prose {
+    font-size: 14.5px;
+    line-height: 2;
+    color: rgba(244, 240, 234, 0.7);
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+
+.btn-footer-action {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--cj-gold);
+    color: var(--cj-green);
+    font-size: 14.5px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 16px 40px;
+    border: 1px solid var(--cj-gold);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn-footer-action:hover {
+    background-color: transparent;
+    color: var(--cj-gold);
+    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.12);
+    transform: translateY(-3px);
+}
+
+/* 下半部：三欄資訊與版權合體大箱子 */
+.footer-directory-container {
+    width: 100%;
+    /* 🎨 微調：將背景在暗色系裡做一點點內斂的加深，視覺極具層次 */
+    background-color: rgba(0, 0, 0, 0.15); 
+    padding: 60px 0 30px 0; /* 縮小上下襯墊，大幅降低高度 */
+}
+
+.directory-wrapper {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}
+
+.dir-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.gold-text { color: var(--cj-gold); }
+
+.dir-brand-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--bg-antique);
+    margin-bottom: 8px;
+}
+
+.dir-brand-en {
+    font-size: 13px;
+    color: rgba(244, 240, 234, 0.4);
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+}
+
+.dir-version-tag {
+    font-size: 10.5px;
+    color: var(--cj-gold);
+    border: 1px solid rgba(197, 160, 89, 0.25);
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+}
+
+.dir-section-title {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--cj-gold);
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.dir-divider {
+    width: 30px;
+    height: 1px;
+    background-color: rgba(197, 160, 89, 0.3);
+    margin-bottom: 20px;
+}
+
+.dir-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.dir-list li {
+    font-size: 13px;
+    color: rgba(244, 240, 234, 0.6);
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+/* ✨ 新增：完美一體化的底部版權宣告橫條細節 */
+.footer-unified-bottom {
+    max-width: 1440px;
+    margin: 50px auto 0 auto; /* 與上方資訊欄拉開 50px 的完美間距 */
+    padding: 25px 80px 0 80px;
+    border-top: 1px solid rgba(244, 240, 234, 0.06); /* 一條極其精細的透明分割橫線 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-unified-bottom .copyright {
+    font-size: 12px;
+    color: rgba(244, 240, 234, 0.35);
+    letter-spacing: 0.5px;
+}
+
+.btn-scroll-top {
+    text-decoration: none;
+    color: var(--cj-gold);
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.btn-scroll-top:hover {
+    color: var(--bg-antique);
+}
+
+/* ==========================================================================
+   一體化頁尾 手機版 RWD 完美防禦
+   ========================================================================== */
+@media (max-width: 768px) {
+    .directory-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 0 24px;
+    }
+
+    .dir-col {
+        align-items: center;
+        text-align: center;
+    }
+
+    .dir-divider {
+        margin: 0 auto 16px auto;
+    }
+
+    .footer-unified-bottom {
+        flex-direction: column; /* 手機版版權與回到頂部改為上下垂直 */
+        gap: 15px;
+        margin-top: 40px;
+        padding: 25px 24px 0 24px;
+        text-align: center;
+    }
+}
+/* ==========================================================================
+   10. 精簡一體化頁尾大總管樣式 (Unified Footer Styles)
+   ========================================================================== */
+.site-footer {
+    background-color: var(--cj-green); /* 全面回歸深長榮綠底色 */
+    color: var(--bg-antique);
+    width: 100%;
+    position: relative;
+    border-top: 1px solid rgba(244, 240, 234, 0.1);
+}
+
+/* 上半部感性導流區 */
+.footer-cta-container {
+    padding: 90px 20px;
+    text-align: center;
+    background-image: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.04) 0%, transparent 70%);
+}
+
+.cta-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-tag {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--cj-gold);
+    display: block;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.cta-heading {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.cta-prose {
+    font-size: 14.5px;
+    line-height: 2;
+    color: rgba(244, 240, 234, 0.7);
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+
+.btn-footer-action {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--cj-gold);
+    color: var(--cj-green);
+    font-size: 14.5px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 16px 40px;
+    border: 1px solid var(--cj-gold);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn-footer-action:hover {
+    background-color: transparent;
+    color: var(--cj-gold);
+    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.12);
+    transform: translateY(-3px);
+}
+
+/* 下半部：三欄資訊與版權合體大箱子 */
+.footer-directory-container {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.15); /* 暗色系細微加深，產生內斂層次 */
+    padding: 60px 0 30px 0; /* 縮小上下留白，大幅降低整體高度 */
+}
+
+.directory-wrapper {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}
+
+.dir-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.gold-text { color: var(--cj-gold); }
+
+/* ✨ 左欄新增：校徽圖片容器與細緻調校 */
+.dir-logo-wrapper {
+    margin-bottom: 20px;
+}
+
+.dir-school-logo {
+    height: 48px; /* 優雅的標誌高度 */
+    width: auto;
+    object-fit: contain;
+    opacity: 0.95;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1)); /* 加上細微陰影 */
+}
+
+.dir-brand-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--bg-antique);
+    margin-bottom: 8px;
+}
+
+.dir-brand-en {
+    font-size: 13px;
+    color: rgba(244, 240, 234, 0.4);
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+}
+
+.dir-version-tag {
+    font-size: 10.5px;
+    color: var(--cj-gold);
+    border: 1px solid rgba(197, 160, 89, 0.25);
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+}
+
+/* 中、右欄標題與裝飾短線 */
+.dir-section-title {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--cj-gold);
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    margin-top: 5px; /* 與左欄校徽維持視覺平行線點對齊 */
+}
+
+.dir-divider {
+    width: 30px;
+    height: 1px;
+    background-color: rgba(197, 160, 89, 0.3);
+    margin-bottom: 20px;
+}
+
+.dir-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.dir-list li {
+    font-size: 13px;
+    color: rgba(244, 240, 234, 0.6);
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+/* 一體化底部版權宣告細條 */
+.footer-unified-bottom {
+    max-width: 1440px;
+    margin: 50px auto 0 auto; 
+    padding: 25px 80px 0 80px;
+    border-top: 1px solid rgba(244, 240, 234, 0.06); /* 極其精細的深色系橫分割線 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-unified-bottom .copyright {
+    font-size: 12px;
+    color: rgba(244, 240, 234, 0.35);
+    letter-spacing: 0.5px;
+}
+
+.btn-scroll-top {
+    text-decoration: none;
+    color: var(--cj-gold);
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.btn-scroll-top:hover {
+    color: var(--bg-antique);
+}
+
+/* ==========================================================================
+   一體化頁尾 手機版 RWD 完美響應與置中優化
+   ========================================================================== */
+@media (max-width: 768px) {
+    .directory-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 0 24px;
+    }
+
+    .dir-col {
+        align-items: center; /* 手機版內容、圖片全數垂直優雅置中 */
+        text-align: center;
+    }
+
+    .dir-divider {
+        margin: 0 auto 16px auto;
+    }
+
+    .footer-unified-bottom {
+        flex-direction: column; 
+        gap: 15px;
+        margin-top: 40px;
+        padding: 25px 24px 0 24px;
+        text-align: center;
+    }
+}
