@@ -79,3 +79,46 @@ function renderNews() {
 }
 
 document.addEventListener('DOMContentLoaded', renderNews);
+// ==========================================================================
+// 📱 手機版導覽列：點擊大項摺疊展開機制 (無衝突終極版)
+// ==========================================================================
+function initMobileMenu() {
+    // 監聽畫面的寬度是否小於等於 992px
+    if (window.innerWidth <= 992) {
+        
+        // 1. 處理第二層選單展開 (關於我們、活動訊息等)
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        dropdownToggles.forEach(toggle => {
+            // 先移除可能舊有的監聽器防止重複觸發
+            toggle.removeEventListener('click', handleMobileDropdown);
+            toggle.addEventListener('click', handleMobileDropdown);
+        });
+
+        // 2. 處理第三層選單展開 (傑出校友、加入校友會等)
+        const nestedToggles = document.querySelectorAll('.nested-toggle');
+        nestedToggles.forEach(toggle => {
+            toggle.removeEventListener('click', handleMobileDropdown);
+            toggle.addEventListener('click', handleMobileDropdown);
+        });
+    }
+}
+
+// 核心點擊處理函式
+function handleMobileDropdown(e) {
+    e.preventDefault(); // 徹底阻擋 <a> 標籤的預設跳躍或重新整理
+    e.stopPropagation(); // 阻止事件向上冒泡
+    
+    const nextMenu = this.nextElementSibling;
+    if (nextMenu) {
+        // 切換 active 類別（如果開著就收起來，關著就推開）
+        nextMenu.classList.toggle('active');
+    }
+}
+
+// 頁面載入完成時執行
+document.addEventListener("DOMContentLoaded", function () {
+    initMobileMenu();
+    
+    // 監聽視窗大小改變（防止在電腦版切換成手機模擬器時沒刷新）
+    window.addEventListener('resize', initMobileMenu);
+});

@@ -1935,3 +1935,512 @@ body {
         text-align: center;
     }
 }
+/* ==========================================================================
+   2.1 高奢下拉選單核心控制 (Advanced Menu dropdown) - 電腦版優先
+   ========================================================================== */
+.main-nav ul li {
+    position: relative; /* 作為第一層下拉選單的定位基準 */
+}
+
+/* 隱藏預設的下拉箱子 */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--nav-bg); /* 與 header 同步的毛玻璃高質感古董米 */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(13, 59, 43, 0.08);
+    min-width: 220px;
+    padding: 10px 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0 !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 10px 30px rgba(13, 59, 43, 0.05);
+    z-index: 999;
+}
+
+/* 滑過第一層選項，展開第二層 */
+.main-nav ul li.dropdown:hover > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 12px 24px !important;
+    font-size: 13.5px !important;
+    color: var(--text-dark);
+    text-decoration: none;
+    width: 100%;
+    transition: all 0.25s ease;
+    letter-spacing: 1px !important;
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--cj-green);
+    color: var(--bg-antique) !important;
+    padding-left: 30px !important;
+}
+
+/* 👑 第三層選單標準定位：預設往右側彈開 */
+.nested-menu {
+    position: absolute;
+    top: 0;
+    left: 100%; 
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(13, 59, 43, 0.08);
+    min-width: 220px;
+    padding: 10px 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 10px 30px rgba(13, 59, 43, 0.05);
+    z-index: 1000;
+}
+
+.nested-dropdown:hover > .nested-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* 🔥【修正電腦版切邊問題】讓最右邊的「更多選項」第三層子選單全部改向左邊彈開 */
+.main-nav ul li.dropdown:last-child .nested-menu {
+    left: auto !important;
+    right: 100% !important; /* 強制改往左邊長出來 */
+    transform: translateX(-10px);
+}
+.main-nav ul li.dropdown:last-child .nested-dropdown:hover > .nested-menu {
+    transform: translateX(0);
+}
+
+
+/* ==========================================================================
+   2.2 手機版 RWD 下拉選單：預設收合防爆版 (Mobile UX Accordion)
+   ========================================================================== */
+/* ==========================================================================
+   2.2 手機版 RWD 下拉選單：終極強制收合版
+   ========================================================================== */
+@media (max-width: 992px) {
+    .main-nav {
+        overflow-y: auto;
+        max-height: calc(100vh - 90px); /* 確保手機版選單太長時自己內部可以滾動 */
+    }
+    
+    .main-nav ul {
+        gap: 5px !important;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 📱 強制最高優先權：預設全面隱藏，不佔任何空間 */
+    .main-nav ul li .dropdown-menu,
+    .main-nav ul li .dropdown-menu .nested-menu {
+        display: none !important; 
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        background-color: rgba(13, 59, 43, 0.04) !important; /* 輕微縮排深色底 */
+        box-shadow: none !important;
+        border: none !important;
+        border-left: 2px solid var(--cj-gold) !important; /* 琥珀金提示線 */
+        padding-left: 12px !important;
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
+        min-width: 100% !important;
+    }
+
+    /* 🔥 當點擊後被 JS 加上 .active 類別時，才強制顯示出來 */
+    .main-nav ul li .dropdown-menu.active,
+    .main-nav ul li .dropdown-menu li .nested-menu.active {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* 幫手機版的按鈕文字後方加上小箭頭提示 */
+    .dropdown-toggle::after, .nested-toggle::after {
+        content: " ▾";
+        font-size: 11px;
+        opacity: 0.7;
+    }
+    
+    .dropdown-menu li a {
+        padding: 12px 15px !important;
+    }
+}
+/* ==========================================================================
+   Section 4: 內頁公版與組織章程專用樣式
+   ========================================================================== */
+.sub-page {
+    background-color: var(--bg-antique);
+}
+
+/* 內頁小主視覺 Header */
+.sub-hero-section {
+    padding: 140px 0 50px 0;
+    background: linear-gradient(to bottom, rgba(13,59,43,0.05), transparent);
+    text-align: center;
+    border-bottom: 1px solid rgba(13, 59, 43, 0.05);
+}
+
+.breadcrumbs {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #8c8c8c;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.breadcrumbs a {
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.breadcrumbs a:hover { color: var(--cj-gold); }
+.breadcrumbs .active { color: var(--cj-green); font-weight: 600; }
+
+.sub-page-title {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    color: var(--cj-green);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+.sub-page-subtitle {
+    font-size: 14px;
+    color: #666;
+    letter-spacing: 1px;
+}
+
+/* 雙欄主架構 */
+.charter-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 50px;
+}
+
+/* 左邊側邊欄控制 */
+.charter-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+}
+.sidebar-sticky-card {
+    position: sticky;
+    top: 100px;
+    background: white;
+    border: 1px solid rgba(13, 59, 43, 0.08);
+    border-radius: 4px;
+    padding: 25px 20px;
+}
+.sidebar-title {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    color: var(--cj-green);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(13, 59, 43, 0.1);
+}
+.sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.sidebar-link {
+    font-size: 13.5px;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: block;
+}
+.sidebar-link:hover, .sidebar-link.active {
+    color: var(--cj-green);
+    font-weight: 600;
+    padding-left: 5px;
+    border-left: 2px solid var(--cj-gold);
+    padding-left: 10px;
+}
+
+/* 右邊法規排版 */
+.charter-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.charter-section {
+    border: none;
+    border-top: 1px solid var(--cj-green);
+    background: white;
+    padding: 35px 30px;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+.charter-section legend {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--cj-green);
+    padding: 0 15px;
+    letter-spacing: 1px;
+}
+
+/* 條文列 */
+.law-row {
+    display: flex;
+    padding: 18px 0;
+    border-bottom: 1px dashed rgba(0,0,0,0.06);
+}
+.law-row:last-child { border-bottom: none; }
+
+.law-title {
+    width: 80px;
+    font-weight: 600;
+    color: var(--cj-gold);
+    font-size: 14px;
+    flex-shrink: 0;
+}
+.law-text {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--text-dark);
+}
+
+/* 清單微調 */
+.law-text ol, .law-text ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.law-text li { line-height: 1.6; }
+
+.law-text-meta {
+    font-size: 13px;
+    color: #8c8c8c;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* 📱 響應式手機版適配 */
+@media (max-width: 768px) {
+    .charter-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .charter-sidebar {
+        width: 100%;
+    }
+    .sidebar-sticky-card {
+        position: relative;
+        top: 0;
+    }
+    .sidebar-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .sidebar-menu li {
+        width: calc(50% - 5px);
+    }
+    .charter-section {
+        padding: 20px;
+    }
+    .law-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+/* ==========================================================================
+   Section 5: 傑出校友遴選辦法專用樣式
+   ========================================================================== */
+.rules-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* 頂部宗旨卡片 */
+.rules-intro-card {
+    background: white;
+    border: 1px solid rgba(13, 59, 43, 0.08);
+    border-radius: 4px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    position: relative;
+}
+.sub-page-subtitle-meta {
+    font-size: 13px;
+    color: #8c8c8c;
+    letter-spacing: 1px;
+    font-style: italic;
+    margin-top: 8px;
+}
+.intro-badge {
+    position: absolute;
+    top: -12px;
+    left: 40px;
+    background: var(--cj-gold);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 4px 12px;
+    letter-spacing: 2px;
+    border-radius: 2px;
+}
+.intro-title {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    color: var(--cj-green);
+    margin-bottom: 15px;
+}
+.intro-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-dark);
+}
+
+/* 條款分隔線標題 */
+.section-divider-title {
+    text-align: center;
+    position: relative;
+    margin-bottom: 35px;
+}
+.section-divider-title::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(13, 59, 43, 0.1);
+    z-index: 1;
+}
+.section-divider-title span {
+    background: var(--bg-antique);
+    padding: 0 25px;
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--cj-green);
+    position: relative;
+    z-index: 2;
+    letter-spacing: 1px;
+}
+
+/* 六大領域卡片網格 */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+.category-card {
+    background: white;
+    border: 1px solid rgba(13, 59, 43, 0.05);
+    border-bottom: 3px solid var(--cj-green); /* 長榮綠沉穩底線 */
+    border-radius: 4px;
+    padding: 30px 25px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(13, 59, 43, 0.06);
+    border-bottom-color: var(--cj-gold); /* 移過去變琥珀金，極具互動質感 */
+}
+.category-icon {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+.category-title {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    color: var(--cj-green);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+.category-desc {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* 後續條款細則排版 */
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+.detail-card {
+    background: white;
+    border: 1px solid rgba(13, 59, 43, 0.08);
+    border-radius: 4px;
+    padding: 30px;
+}
+.detail-card.full-width {
+    grid-column: span 2;
+}
+.detail-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed rgba(13, 59, 43, 0.1);
+    padding-bottom: 12px;
+}
+.detail-num {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--cj-gold);
+}
+.detail-title {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    color: var(--cj-green);
+    font-weight: 600;
+}
+.detail-text {
+    font-size: 14.5px;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+.detail-list {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14.5px;
+    color: var(--text-dark);
+}
+.detail-list li { line-height: 1.6; }
+
+/* 📱 手機版 RWD 微調 */
+@media (max-width: 768px) {
+    .rules-intro-card { padding: 30px 20px; }
+    .details-grid { grid-template-columns: 1fr; }
+    .detail-card.full-width { grid-column: span 1; }
+}
