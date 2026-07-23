@@ -2640,3 +2640,514 @@ body {
         gap: 20px;
     }
 }
+/* ==========================================================================
+   Section 7: 辦公室成員專用樣式 (純姓名典藏名冊)
+   ========================================================================== */
+.staff-roster-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.roster-card {
+    background: white;
+    border: 1px solid rgba(13, 59, 43, 0.1);
+    border-radius: 4px;
+    padding: 35px 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.roster-header {
+    border-bottom: 2px solid var(--cj-green);
+    padding-bottom: 12px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.roster-count {
+    font-family: var(--font-serif);
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--cj-green);
+    letter-spacing: 1px;
+}
+
+/* 4 欄式精緻姓名網格 */
+.roster-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px 20px;
+}
+
+.roster-item {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-align: center;
+    padding: 12px 10px;
+    background: rgba(13, 59, 43, 0.02);
+    border: 1px solid rgba(13, 59, 43, 0.05);
+    border-radius: 3px;
+    letter-spacing: 2px;
+    transition: all 0.2s ease;
+}
+
+.roster-item:hover {
+    background: var(--cj-green);
+    color: var(--bg-antique);
+    border-color: var(--cj-green);
+    transform: translateY(-2px);
+}
+
+/* 📱 響應式適配 */
+@media (max-width: 768px) {
+    .roster-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .roster-card {
+        padding: 25px 20px;
+    }
+}
+/* 辦公室成員頁面下方的幹部導引卡片 */
+.roster-cta-card {
+    margin-top: 30px;
+    background: linear-gradient(135deg, rgba(13, 59, 43, 0.03), rgba(212, 175, 55, 0.08));
+    border: 1px dashed rgba(13, 59, 43, 0.2);
+    border-radius: 4px;
+    padding: 25px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+.roster-cta-card:hover {
+    border-color: var(--cj-gold);
+    background: linear-gradient(135deg, rgba(13, 59, 43, 0.05), rgba(212, 175, 55, 0.12));
+}
+
+.cta-title {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    color: var(--cj-green);
+    margin-bottom: 4px;
+}
+
+.cta-desc {
+    font-size: 13.5px;
+    color: #666;
+}
+
+.cta-btn {
+    background: var(--cj-green);
+    color: var(--bg-antique);
+    text-decoration: none;
+    padding: 12px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(13, 59, 43, 0.15);
+}
+
+.cta-btn:hover {
+    background: var(--cj-gold);
+    color: white;
+    transform: translateX(3px);
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.3);
+}
+
+/* 📱 手機版微調 */
+@media (max-width: 600px) {
+    .roster-cta-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    .cta-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+/* ==========================================================================
+   Section 8: 分會幹部專用樣式 (Chapters Page)
+   ========================================================================== */
+.chapters-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+.chapter-group {
+    background: white;
+    border: 1px solid rgba(13, 59, 43, 0.08);
+    border-radius: 4px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.chapter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2px solid rgba(13, 59, 43, 0.08);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.chapter-region-tag {
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--cj-gold);
+    letter-spacing: 2px;
+}
+
+.chapter-title {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    color: var(--cj-green);
+    margin-top: 4px;
+}
+
+.chapter-status {
+    font-size: 12px;
+    background: rgba(13, 59, 43, 0.08);
+    color: var(--cj-green);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.chapter-status.gold {
+    background: rgba(212, 175, 55, 0.15);
+    color: #8a6d1c;
+}
+
+/* 幹部卡片陣列 */
+.chapter-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.chapter-card {
+    background: rgba(13, 59, 43, 0.015);
+    border: 1px solid rgba(13, 59, 43, 0.06);
+    border-radius: 4px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.chapter-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(13, 59, 43, 0.06);
+    border-color: rgba(13, 59, 43, 0.2);
+    background: white;
+}
+
+/* 會長重點 Highlights 卡片 */
+.chapter-card.leader {
+    background: linear-gradient(135deg, white, rgba(212, 175, 55, 0.08));
+    border: 1px solid var(--cj-gold);
+}
+
+.chapter-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--cj-green);
+    color: var(--bg-antique);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 14px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.chapter-card.leader .chapter-avatar {
+    background: var(--cj-gold);
+    color: white;
+}
+
+.chapter-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.chapter-role {
+    font-size: 11.5px;
+    color: var(--cj-gold);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.chapter-name {
+    font-family: var(--font-serif);
+    font-size: 16.5px;
+    color: var(--text-dark);
+    font-weight: bold;
+}
+
+.chapter-meta {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* 📱 手機版 RWD 微調 */
+@media (max-width: 600px) {
+    .chapter-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .chapter-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ==========================================================================
+   Section 8: 幹部專用樣式 (早期 staff.html 純表格清單版)
+   ========================================================================== */
+.chapters-list-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.chapters-list-card {
+    background: white;
+    border: 1px solid rgba(13, 59, 43, 0.1);
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+}
+
+/* 4 欄式表頭 */
+.chapters-list-header {
+    display: grid;
+    grid-template-columns: 1.2fr 1.8fr 1.2fr 3fr;
+    background: var(--cj-green);
+    color: var(--bg-antique);
+    padding: 15px 25px;
+    font-family: var(--font-serif);
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* 列表清單本體 */
+.chapters-simple-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chapter-item {
+    display: grid;
+    grid-template-columns: 1.2fr 1.8fr 1.2fr 3fr;
+    padding: 16px 25px;
+    border-bottom: 1px solid rgba(13, 59, 43, 0.06);
+    align-items: center;
+    font-size: 14.5px;
+    transition: background 0.2s ease;
+}
+
+/* 隔行斑馬紋與懸停動效 */
+.chapter-item:nth-child(even) {
+    background: rgba(13, 59, 43, 0.015);
+}
+
+.chapter-item:hover {
+    background: rgba(212, 175, 55, 0.08); /* 滑鼠移上去微金黃色光澤 */
+}
+
+/* 核心幹部重點底色 */
+.chapter-item.highlight {
+    background: rgba(212, 175, 55, 0.04);
+}
+
+/* 各欄位文字細節 */
+.col-data.category {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--cj-gold);
+    letter-spacing: 1px;
+}
+
+.col-data.role {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.col-data.role.leader {
+    color: var(--cj-green);
+    font-weight: 700;
+    font-family: var(--font-serif);
+}
+
+.col-data.role.media {
+    color: var(--cj-green);
+    font-weight: 700;
+}
+
+.col-data.name {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.col-data.expert {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* 📱 手機版 RWD 自適應 */
+@media (max-width: 768px) {
+    .chapters-list-header {
+        display: none; /* 手機版隱藏表頭，改為單欄卡片感 */
+    }
+    
+    .chapter-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 15px 20px;
+    }
+    
+    .col-data.expert {
+        font-size: 12.5px;
+        color: #666;
+        border-top: 1px dashed rgba(13, 59, 43, 0.1);
+        padding-top: 6px;
+        width: 100%;
+    }
+}
+/* ==========================================================================
+   Section 8: 極簡分塊幹部頁面 (Clean & Modern Grouping)
+   ========================================================================== */
+.clean-chapters-container {
+    max-width: 960px;
+    margin: 40px auto 60px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* 分塊大卡片 */
+.clean-group {
+    background: #ffffff;
+    border: 1px solid rgba(13, 59, 43, 0.08);
+    border-radius: 6px;
+    padding: 28px 32px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+}
+
+.clean-group-header {
+    border-bottom: 1.5px solid rgba(13, 59, 43, 0.08);
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+}
+
+.clean-group-header h2 {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    color: var(--cj-green);
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+/* 網格排列 */
+.clean-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.clean-grid.single {
+    grid-template-columns: 1fr;
+}
+
+/* 幹部小卡片 */
+.clean-card {
+    background: #fafcfb;
+    border: 1px solid rgba(13, 59, 43, 0.06);
+    border-radius: 4px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.clean-card:hover {
+    border-color: rgba(13, 59, 43, 0.25);
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(13, 59, 43, 0.05);
+}
+
+/* 理事長 / 執行長 微強調 */
+.clean-card.highlight {
+    border-left: 3px solid var(--cj-gold);
+}
+
+.clean-card.media {
+    border-left: 3px solid var(--cj-green);
+}
+
+/* 職位 / 姓名 / 說明 字體階層 */
+.clean-card .role {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--cj-gold);
+    letter-spacing: 0.5px;
+}
+
+.clean-card.media .role,
+.clean-card.highlight .role {
+    color: var(--cj-green);
+}
+
+.clean-card .name {
+    font-family: var(--font-serif);
+    font-size: 19px;
+    color: var(--text-dark);
+    font-weight: 700;
+    margin: 2px 0;
+}
+
+.clean-card .desc {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* 📱 手機版調整 */
+@media (max-width: 600px) {
+    .clean-group {
+        padding: 20px;
+    }
+    .clean-grid {
+        grid-template-columns: 1fr;
+    }
+}
