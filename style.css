@@ -2444,3 +2444,199 @@ body {
     .details-grid { grid-template-columns: 1fr; }
     .detail-card.full-width { grid-column: span 1; }
 }
+/* ==========================================================================
+   Section 6: 歷屆校歌專用樣式 (Anthem Page)
+   ========================================================================== */
+.anthem-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* 年代頁籤列 */
+.anthem-tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    border-bottom: 2px solid rgba(13, 59, 43, 0.08);
+    padding-bottom: 15px;
+}
+.anthem-tab-btn {
+    background: transparent;
+    border: 1px solid rgba(13, 59, 43, 0.15);
+    padding: 10px 20px;
+    font-size: 14px;
+    color: var(--text-dark);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+.anthem-tab-btn:hover {
+    border-color: var(--cj-green);
+    color: var(--cj-green);
+}
+.anthem-tab-btn.active {
+    background: var(--cj-green);
+    color: var(--bg-antique);
+    border-color: var(--cj-green);
+    box-shadow: 0 4px 15px rgba(13, 59, 43, 0.15);
+}
+
+/* 歌詞主要卡片 */
+.anthem-card {
+    display: none; /* 預設隱藏，由 Tab 控制 */
+    background: white;
+    border: 1px solid rgba(13, 59, 43, 0.08);
+    border-radius: 4px;
+    padding: 50px 40px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.02);
+    text-align: center;
+    animation: fadeIn 0.4s ease-in-out;
+}
+.anthem-card.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.anthem-meta-header {
+    margin-bottom: 35px;
+    border-bottom: 1px dashed rgba(13, 59, 43, 0.1);
+    padding-bottom: 20px;
+}
+.anthem-era-tag {
+    font-size: 11px;
+    color: var(--cj-gold);
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.anthem-name {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    color: var(--cj-green);
+    margin: 8px 0;
+}
+.anthem-author {
+    font-size: 13px;
+    color: #777;
+    letter-spacing: 1px;
+}
+
+/* 歌詞本體排版 */
+.anthem-lyrics-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 0;
+}
+.lyrics-line {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-dark);
+    letter-spacing: 2px;
+}
+
+/* 音檔徵集 Callout 卡片 */
+.anthem-audio-callout {
+    background: linear-gradient(135deg, rgba(13,59,43,0.03), rgba(212,175,55,0.08));
+    border: 1px solid rgba(13, 59, 43, 0.1);
+    border-radius: 4px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+.callout-icon { font-size: 32px; }
+.callout-content { flex-grow: 1; }
+.callout-title {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    color: var(--cj-green);
+    margin-bottom: 6px;
+}
+.callout-desc {
+    font-size: 13.5px;
+    color: #666;
+    line-height: 1.6;
+}
+.btn-callout {
+    background: var(--cj-green);
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 10px 18px;
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: background 0.3s;
+}
+.btn-callout:hover {
+    background: var(--cj-gold);
+}
+
+/* 📱 手機版 RWD 適配 */
+@media (max-width: 768px) {
+    .anthem-card { padding: 30px 20px; }
+    .lyrics-line { font-size: 16px; }
+    .anthem-audio-callout {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* 雙欄對照排版 (日文/中文) */
+.anthem-lyrics-bilingual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 20px 0;
+    text-align: left;
+}
+
+.lyrics-column {
+    background: rgba(13, 59, 43, 0.02);
+    padding: 25px;
+    border-radius: 4px;
+    border-left: 2px solid var(--cj-gold);
+}
+
+.lyrics-lang-title {
+    font-family: var(--font-serif);
+    font-size: 14px;
+    color: var(--cj-green);
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(13, 59, 43, 0.1);
+    letter-spacing: 1px;
+}
+
+.anthem-single-column {
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.lyrics-line-chinese {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    color: var(--cj-green);
+    letter-spacing: 2px;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .anthem-lyrics-bilingual {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

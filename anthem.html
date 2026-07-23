@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歷屆校歌 | 台灣長榮中學校友會總會</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="sub-page">
+
+    <!-- ==========================================================================
+         Section 1: 頂級大氣導覽列
+         ========================================================================== -->
+    <header class="site-header">
+        <a href="index.html" class="brand-link">
+            <img src="cjshs.png" alt="長榮校徽" class="school-logo-img">
+            <div class="logo-title">
+                <span class="sub">我是長榮人</span>
+                <span class="main">星火回家</span>
+            </div>
+        </a>
+        
+        <input type="checkbox" id="menu-toggle" class="menu-toggle-input">
+        <label for="menu-toggle" class="hamburger-btn">
+            <span></span> <span></span> <span></span>
+        </label>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">關於我們 ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="board.html">理監事名單</a></li>
+                        <li><a href="charter.html">組織章程</a></li>
+                        <li><a href="staff.html">辦公室成員</a></li>
+                        <li><a href="members.html">永久會員</a></li>
+                        <li><a href="chapters.html">分會幹部</a></li>
+                        <li><a href="anthem.html">歷屆校歌</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#news">活動訊息</a></li>
+                <li><a href="documents.html">校友服務</a></li>
+                <li><a href="legacy.html">更多選項</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================================
+         Section 2: 標題與引言區
+         ========================================================================== -->
+    <section class="sub-hero-section">
+        <div class="sub-hero-wrapper">
+            <div class="breadcrumbs">
+                <a href="index.html">首頁</a> ／ <span>關於我們</span> ／ <span class="active">歷屆校歌</span>
+            </div>
+            <h1 class="sub-page-title">百年韻律·歷屆校歌</h1>
+            <p class="sub-page-subtitle">跨越百年的樂章，記錄著長榮中學從 1914 年至今的歲月記憶與文化傳承。</p>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 3: 歷代校歌時間軸切換專區
+         ========================================================================== -->
+    <main class="anthem-container">
+        
+        <!-- 5 首校歌切換頁籤 (Tab Buttons) -->
+        <div class="anthem-tabs-wrapper">
+            <button class="anthem-tab-btn active" data-target="anthem-1">1914年 校歌</button>
+            <button class="anthem-tab-btn" data-target="anthem-2">1924年 校歌</button>
+            <button class="anthem-tab-btn" data-target="anthem-3">1936年 校歌</button>
+            <button class="anthem-tab-btn" data-target="anthem-4">1939年 校歌</button>
+            <button class="anthem-tab-btn" data-target="anthem-5">1945年 現行校歌</button>
+        </div>
+
+        <!-- 校歌內容區 -->
+        <div class="anthem-content-wrapper">
+            
+            <!-- 1. 1914 年校歌 -->
+            <div class="anthem-card active" id="anthem-1">
+                <div class="anthem-meta-header">
+                    <span class="anthem-era-tag">1914年（大正3年 / 民國3年）9月</span>
+                    <h2 class="anthem-name">創校初期校歌</h2>
+                    <p class="anthem-author">作詞：山本芳助</p>
+                </div>
+                <div class="anthem-lyrics-bilingual">
+                    <div class="lyrics-column">
+                        <h4 class="lyrics-lang-title">日文原詞</h4>
+                        <p class="lyrics-line">西曆一八八五年</p>
+                        <p class="lyrics-line">雲まだ深き蓬萊の</p>
+                        <p class="lyrics-line">暗を破りて生れたる</p>
+                        <p class="lyrics-line">我が學校を知るや君。</p>
+                        <br>
+                        <p class="lyrics-line">ああ扶桑の土地蓬萊の</p>
+                        <p class="lyrics-line">未開の雲を打ち拂ひ</p>
+                        <p class="lyrics-line">文華の光をわたらせん</p>
+                        <p class="lyrics-line">我が本領ぞ知るや君。</p>
+                    </div>
+                    <div class="lyrics-column">
+                        <h4 class="lyrics-lang-title">中文意譯</h4>
+                        <p class="lyrics-line">西曆一八八五年</p>
+                        <p class="lyrics-line">雲深未開蓬萊島</p>
+                        <p class="lyrics-line">旭日破曉東昇時</p>
+                        <p class="lyrics-line">吾校誕生君知乎</p>
+                        <br>
+                        <p class="lyrics-line">台灣歸屬日本國</p>
+                        <p class="lyrics-line">撥雲見日未開地</p>
+                        <p class="lyrics-line">傳播文化遍全島</p>
+                        <p class="lyrics-line">吾校宗旨君知乎</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. 1924 年校歌 -->
+            <div class="anthem-card" id="anthem-2">
+                <div class="anthem-meta-header">
+                    <span class="anthem-era-tag">1924年（大正13年 / 民國13年）</span>
+                    <h2 class="anthem-name">西の聖者</h2>
+                    <p class="anthem-author">作詞：三屋大五郎 ｜ 作曲：萬榮華夫人</p>
+                </div>
+                <div class="anthem-lyrics-bilingual">
+                    <div class="lyrics-column">
+                        <h4 class="lyrics-lang-title">日文原詞</h4>
+                        <p class="lyrics-line">西の聖者のきよき手で</p>
+                        <p class="lyrics-line">培ひ初めし教へ草</p>
+                        <p class="lyrics-line">神の攝理の固くして</p>
+                        <p class="lyrics-line">根ざしも深く幾十年</p>
+                        <p class="lyrics-line">名敎の花くれないに</p>
+                        <p class="lyrics-line">咲きてぞ匂へ我が園生</p>
+                        <br>
+                        <p class="lyrics-line">東西西洋文明の</p>
+                        <p class="lyrics-line">潮相合ふ日の本の</p>
+                        <p class="lyrics-line">重き使命を果すべき</p>
+                        <p class="lyrics-line">大なる抱負我在り</p>
+                        <p class="lyrics-line">あゝ、明敎の光こそ</p>
+                        <p class="lyrics-line">我等が行手示すなり</p>
+                    </div>
+                    <div class="lyrics-column">
+                        <h4 class="lyrics-lang-title">中文意譯</h4>
+                        <p class="lyrics-line">西方聖賢到府城</p>
+                        <p class="lyrics-line">首創學堂培英才</p>
+                        <p class="lyrics-line">上帝攝理極穩固</p>
+                        <p class="lyrics-line">根深蒂固數十年</p>
+                        <p class="lyrics-line">聖書教誨如花朵</p>
+                        <p class="lyrics-line">盛開芬芳滿校園</p>
+                        <br>
+                        <p class="lyrics-line">東西兩方新文明</p>
+                        <p class="lyrics-line">匯合日本如潮流</p>
+                        <p class="lyrics-line">重大使命為己任</p>
+                        <p class="lyrics-line">遠大抱負在吾身</p>
+                        <p class="lyrics-line">聖教之光是明燈</p>
+                        <p class="lyrics-line">指南引導眾學子</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. 1936 年校歌 -->
+            <div class="anthem-card" id="anthem-3">
+                <div class="anthem-meta-header">
+                    <span class="anthem-era-tag">1936年（昭和11年 / 民國25年）</span>
+                    <h2 class="anthem-name">昭和十一年版校歌</h2>
+                    <p class="anthem-author">作詞：栗津瀧藏 ｜ 作曲：大中寅二</p>
+                </div>
+                <div class="anthem-lyrics-bilingual">
+                    <div class="lyrics-column">
+                        <h4 class="lyrics-lang-title">日文原詞</h4>
+                        <p class="lyrics-line">新高の嶺を東に仰ぎ</p>
+                        <p class="lyrics-line">南部平原の穗波の中に</p>
+                        <p class="lyrics-line">かがやき聳ゆる吾等がお母校</p>
+                        <p class="lyrics-line">聖なる理想を高くかかげて</p>
+                        <p class="lyrics-line">撓まず勉むる抱負を知るや</p>
+                        <br>
+                        <p class="lyrics-line">御稜威は洽く宇内にわたり</p>
+                        <p class="lyrics-line">世界の文化は吾國集まる</p>
+                        <p class="lyrics-line">これぞ燦たる歷史の光</p>
+                        <p class="lyrics-line">天壤無窮の皇國を讚へ</p>
+                        <p class="lyrics-line">國民の道を修め勵まむ</p>
+                        <br>
+                        <p class="lyrics-line">紺碧の大空朝日に晴れて</p>
+                        <p class="lyrics-line">綠の島根に平和漲る</p>
+                        <p class="lyrics-line">十字架の愛と神の惠</p>
+                        <p class="lyrics-line">聖靈の力吾身に受けて</p>
+                        <p class="lyrics-line">正しき清き道を進まむ</p>
+                    </div>
+                    <div class="lyrics-column">
+                        <h4 class="lyrics-lang-title">中文意譯</h4>
+                        <p class="lyrics-line">仰望玉山在東方</p>
+                        <p class="lyrics-line">嘉南平原瑞穗中</p>
+                        <p class="lyrics-line">耀煌堂皇吾母校</p>
+                        <p class="lyrics-line">神聖理想指望高</p>
+                        <p class="lyrics-line">不撓抱負君知否</p>
+                        <br>
+                        <p class="lyrics-line">天皇威勢遍天下</p>
+                        <p class="lyrics-line">世界文化集吾國</p>
+                        <p class="lyrics-line">無比燦爛歷史光</p>
+                        <p class="lyrics-line">讚美皇國彌長榮</p>
+                        <p class="lyrics-line">勵志力修國民道</p>
+                        <br>
+                        <p class="lyrics-line">碧藍晴空朝日照</p>
+                        <p class="lyrics-line">翠綠海島和平滿</p>
+                        <p class="lyrics-line">上帝恩惠十字架</p>
+                        <p class="lyrics-line">聖靈充滿於吾身</p>
+                        <p class="lyrics-line">邁進公義真理路</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. 1939 年校歌 -->
+            <div class="anthem-card" id="anthem-4">
+                <div class="anthem-meta-header">
+                    <span class="anthem-era-tag">1939年（昭和14年 / 民國28年）6月</span>
+                    <h2 class="anthem-name">昭和十四年版校歌</h2>
+                    <p class="anthem-author">作詞：栗津瀧藏 ｜ 作曲：大中寅二</p>
+                </div>
+                <div class="anthem-lyrics-bilingual">
+                    <div class="lyrics-column">
+                        <h4 class="lyrics-lang-title">日文原詞</h4>
+                        <p class="lyrics-line">新高の嶺を東に仰ぎ</p>
+                        <p class="lyrics-line">南部平原の穗波の中に</p>
+                        <p class="lyrics-line">かがやき聳ゆる吾等がお母校</p>
+                        <p class="lyrics-line">高き理想を行く手に望み</p>
+                        <p class="lyrics-line">撓まず勉むる抱負を知るや</p>
+                        <br>
+                        <p class="lyrics-line">御稜威は洽く宇内にわたり</p>
+                        <p class="lyrics-line">世界の文化は吾國集まる</p>
+                        <p class="lyrics-line">これぞ燦たる歷史の光</p>
+                        <p class="lyrics-line">天壤無窮の皇國を讚へ</p>
+                        <p class="lyrics-line">吾等皇民のほこりに生きむ</p>
+                        <br>
+                        <p class="lyrics-line">皇國の榮えを吾等の任とし</p>
+                        <p class="lyrics-line">氣節を尙び廉恥を重んじ</p>
+                        <p class="lyrics-line">渦卷く世潮に舵をゆるさず</p>
+                        <p class="lyrics-line">修文練武威氣を鍛へ</p>
+                        <p class="lyrics-line">吾等皇民の任務をつくさむ</p>
+                    </div>
+                    <div class="lyrics-column">
+                        <h4 class="lyrics-lang-title">中文意譯</h4>
+                        <p class="lyrics-line">仰望玉山在東方</p>
+                        <p class="lyrics-line">嘉南平原瑞穗中</p>
+                        <p class="lyrics-line">耀煌堂皇吾母校</p>
+                        <p class="lyrics-line">瞻望未來理想高</p>
+                        <p class="lyrics-line">不撓抱負君知否</p>
+                        <br>
+                        <p class="lyrics-line">天皇威勢遍天下</p>
+                        <p class="lyrics-line">世界文化集吾國</p>
+                        <p class="lyrics-line">燦爛歷史放光芒</p>
+                        <p class="lyrics-line">讚美皇國彌長榮</p>
+                        <p class="lyrics-line">生為皇民足自誇</p>
+                        <br>
+                        <p class="lyrics-line">皇國繁榮為己任</p>
+                        <p class="lyrics-line">尚氣節而重廉恥</p>
+                        <p class="lyrics-line">世潮旋渦緊掌舵</p>
+                        <p class="lyrics-line">修文練武培元氣</p>
+                        <p class="lyrics-line">竭盡皇民之任務</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. 1945 年現行校歌 -->
+            <div class="anthem-card" id="anthem-5">
+                <div class="anthem-meta-header">
+                    <span class="anthem-era-tag">1945年（民國34年）台灣光復後啟用至今</span>
+                    <h2 class="anthem-name">長榮中學現行校歌</h2>
+                    <p class="anthem-author">作詞：趙天慈、杜英助 ｜ 作曲：周慶淵</p>
+                </div>
+                <div class="anthem-single-column">
+                    <p class="lyrics-line-chinese">堂皇大廈，威鎮城東，歷史悠久，美島稱雄。</p>
+                    <p class="lyrics-line-chinese">桃李盈門，化雨春風，螢雪苦幹，學海爭強。</p>
+                    <p class="lyrics-line-chinese">隆隆校運，與世同長，隆隆校運，與世同長，</p>
+                    <p class="lyrics-line-chinese">長榮中學，萬世流芳。長榮中學，萬世流芳。長榮，長榮，長榮！</p>
+                </div>
+            </div>
+
+        </div>
+
+        
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        
+        
+
+        <div class="footer-directory-container">
+            <div class="directory-wrapper">
+                
+                <div class="dir-col dir-col-left">
+                    <h3 class="dir-brand-title">長榮中學 <span class="gold-text">校友會</span></h3>
+                    <p class="dir-brand-en">Chang Jung Senior High School</p>
+                    <div class="dir-version-tag">星火回歸動態系統 v1.0</div>
+                </div>
+
+                <div class="dir-col dir-col-center">
+                    <h3 class="dir-section-title">指導營運</h3>
+                    <div class="dir-divider"></div>
+                    <ul class="dir-list">
+                        <li>現任校長：許德勝 校長</li>
+                        <li>執行長：長榮中學 校友會 執行長</li>
+                        <li>協辦單位：長榮中學 校長室 / 總務處</li>
+                    </ul>
+                </div>
+
+                <div class="dir-col dir-col-right">
+                    <h3 class="dir-section-title">技術開發</h3>
+                    <div class="dir-divider"></div>
+                    <ul class="dir-list">
+                        <li>網頁製作：多媒體設計科 陳柏睿製作</li>
+                        <li>影像拍攝：多媒體設計科 陳柏睿製作</li>
+                        <li>地點：台南市東區林森路二段79號</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-unified-bottom">
+                <div class="dir-logo-wrapper">
+                    <img src="images/cjshs-logo.png" alt="長榮校徽" class="dir-school-logo">
+                </div>
+                <p class="copyright">&copy; 2026 長榮高級中學校友會. All Rights Reserved.</p>
+                <a href="#" class="btn-scroll-top">Back to Top ➔</a>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // ✨ Tab 切換邏輯
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.anthem-tab-btn');
+            const cards = document.querySelectorAll('.anthem-card');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    cards.forEach(c => c.classList.remove('active'));
+
+                    tab.classList.add('active');
+                    const targetId = tab.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
