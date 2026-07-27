@@ -3,109 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>辦公室成員名冊 | 台灣長榮中學校友會總會</title>
+    <title>組織幹部 | 台灣長榮中學校友會總會</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="sub-page">
 
     <!-- Header (全站同步) -->
-    <header class="site-header">
-        <a href="index.html" class="brand-link">
-            <img src="cjshs.png" alt="長榮校徽" class="school-logo-img">
-            <div class="logo-title">
-                <span class="sub">我是長榮人</span>
-                <span class="main">星火回家</span>
-            </div>
-        </a>
-        
-        <input type="checkbox" id="menu-toggle" class="menu-toggle-input">
-        <label for="menu-toggle" class="hamburger-btn">
-            <span></span> <span></span> <span></span>
-        </label>
-
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">首頁</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">關於我們 ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="board.html">理監事名單</a></li>
-                        <li><a href="charter.html">組織章程</a></li>
-                        <li><a href="staff.html">辦公室成員</a></li>
-                        <li><a href="members.html">永久會員</a></li>
-                        <li><a href="chapters.html">分會幹部</a></li>
-                        <li><a href="anthem.html">歷屆校歌</a></li>
-                        <li class="nested-dropdown">
-                            <a href="#" class="nested-toggle">傑出校友 ▸</a>
-                            <ul class="nested-menu">
-                                <li><a href="alumni-rules.html">傑出校友遴選辦法</a></li>
-                                <li><a href="alumni-history.html">歷屆傑出校友名錄</a></li>
-                                <li><a href="alumni-140th.html">140週年傑出校友名錄</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- 活動訊息 下拉選單 -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">活動訊息 ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="index.html#news">最新活動</a></li>
-                        <li><a href="events-review.html">活動回顧</a></li>
-                        <li class="nested-dropdown">
-                            <a href="#" class="nested-toggle">活動剪影 ▸</a>
-                            <ul class="nested-menu">
-                                <li><a href="gallery-alumni.html">校友活動</a></li>
-                                <li><a href="gallery-students.html">在校生活動</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- 校友服務 下拉選單 -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">校友服務 ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="documents.html">各項證件申請</a></li>
-                        <li><a href="profile-update.html">校友資料更新</a></li>
-                        <li><a href="reunion.html">回校舉辦同學會</a></li>
-                        <li><a href="photography.html">回校古蹟景點拍攝</a></li>
-                        <li><a href="industry-consulting.html">長榮人產業諮詢</a></li>
-                        <li><a href="industry-map.html">長榮人產業地圖</a></li>
-                    </ul>
-                </li>
-
-                <!-- 更多選項 下拉選單 -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">更多選項 ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="https://www.cjshs.tn.edu.tw/" target="_blank">母校長中官網</a></li>
-                        <li class="nested-dropdown">
-                            <a href="#" class="nested-toggle">加入校友會 ▸</a>
-                            <ul class="nested-menu">
-                                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSe7tYzG9ApGoW6fAe0eO6XOte74KEQQxfrSMY1hhPNYBUpIfg/viewform" target="_blank">線上申請表單</a></li>
-                                <li><a href="card-reissue.html">數位校友卡補發</a></li>
-                            </ul>
-                        </li>
-                        <li class="nested-dropdown">
-                            <a href="#" class="nested-toggle">長中人文 ▸</a>
-                            <ul class="nested-menu">
-                                <li><a href="people.html">長中人物誌</a></li>
-                                <li><a href="stories.html">長中歷史故事</a></li>
-                            </ul>
-                        </li>
-                        <li class="nested-dropdown">
-                            <a href="#" class="nested-toggle">愛校護校 ▸</a>
-                            <ul class="nested-menu">
-                                <li><a href="heritage-donation.html">古蹟認獻計畫</a></li>
-                                <li><a href="glory-inherit.html">母校榮譽繼承</a></li>
-                                <li><a href="equipment-update.html">軟硬體設備維護</a></li>
-                                <li><a href="support-others.html">其他技術支援</a></li>
-                            </ul>
-                        </li>
-            </ul>
-        </nav>
-    </header>
+    <div id="site-header-container"></div>
 
     <!-- Sub-Hero Zone -->
     <section class="sub-hero-section">
@@ -113,100 +17,138 @@
             <div class="breadcrumbs">
                 <a href="index.html">首頁</a> ／ <span>關於我們</span> ／ <span class="active">辦公室成員</span>
             </div>
-            <h1 class="sub-page-title">辦公室成員名冊</h1>
-            <p class="sub-page-subtitle">校友會總會團隊全體成員 (共 20 位)</p>
+            <h1 class="sub-page-title">校友會辦公室成員</h1>
+            <p class="sub-page-subtitle">母校師長、總會核心團隊</p>
         </div>
     </section>
 
-    <!-- 純姓名矩陣區域 -->
-    <main class="staff-roster-container">
+    <!-- 分塊極簡幹部頁面 -->
+    <main class="clean-chapters-container">
         
-        <div class="roster-card">
-            <div class="roster-header">
-                <span class="roster-count">全體成員 (排序依姓氏筆畫順序)</span>
+        <!-- 區塊 1: 母校指導與總會核心 -->
+        <section class="clean-group">
+            <div class="clean-group-header">
+                <h2>母校指導與總會核心</h2>
             </div>
 
-            <!-- 20 個純姓名網格 -->
-            <div class="roster-grid">
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
-                <div class="roster-item">陳柏睿</div>
+            <div class="clean-grid">
+                <div class="clean-card highlight">
+                    <span class="role">名譽理事長 / 校長</span>
+                    <h3 class="name">許德勝</h3>
+                    <p class="desc">校務總籌、校友資源對接與發展規劃</p>
+                    <a href="mailto:principal@cjshs.tn.edu.tw" class="email-link">✉ principal@cjshs.tn.edu.tw</a>
+                </div>
+
+                <div class="clean-card">
+                    <span class="role">校長室秘書</span>
+                    <h3 class="name">林育如</h3>
+                    <p class="desc">跨單位行政協調與校友會總務聯繫</p>
+                    <a href="mailto:sec@cjshs.tn.edu.tw" class="email-link">✉ sec@cjshs.tn.edu.tw</a>
+                </div>
+
+                <div class="clean-card highlight">
+                    <span class="role">校友會執行長</span>
+                    <h3 class="name">黃宗雄</h3>
+                    <p class="desc">會務發展規劃、星火計畫與專案統籌</p>
+                    <a href="mailto:ceo@cjshs-alumni.org" class="email-link">✉ ceo@cjshs-alumni.org</a>
+                </div>
+
+                
             </div>
-        </div>
-        <!-- 下方導引區塊：點選查看分會幹部 -->
-        <div class="roster-cta-card">
-            <div class="cta-content">
-                <h3 class="cta-title">尋找特定區域或部門幹部？</h3>
-                <p class="cta-desc">若您需要聯繫各地分會負責人或了解詳細組織幹部分工，請前往幹部專區。</p>
+        </section>
+
+        <!-- 區塊 2: 區域分會 -->
+        <section class="clean-group">
+            <div class="clean-group-header">
+                <h2>辦公室組織職能</h2>
             </div>
-            <a href="chapters.html" class="cta-btn">點我查看分會幹部 ➔</a>
-        </div>
+
+            <div class="clean-grid">
+                <div class="clean-card">
+                    <span class="role">服務組</span>
+                    <h3 class="name">林育如</h3>
+                    <p class="desc">返校活動對接窗口</p>
+                    <a href="mailto:taipei@cjshs-alumni.org" class="email-link">✉ taipei@cjshs-alumni.org</a>
+                </div>
+
+                <div class="clean-card">
+                    <span class="role">服務組</span>
+                    <h3 class="name">吳敬祥</h3>
+                    <p class="desc">建制數位資料庫</p>
+                    <a href="mailto:taipei-sec@cjshs-alumni.org" class="email-link">✉ taipei-sec@cjshs-alumni.org</a>
+                </div>
+
+                <div class="clean-card">
+                    <span class="role">服務組</span>
+                    <h3 class="name">陳玉珍</h3>
+                    <p class="desc">核發校友證及行政</p>
+                    <a href="mailto:taichung@cjshs-alumni.org" class="email-link">✉ taichung@cjshs-alumni.org</a>
+                </div>
+
+                <div class="clean-card">
+                    <span class="role">傳播組</span>
+                    <h3 class="name">黃明泰</h3>
+                    <p class="desc">經營社群媒體帳號</p>
+                    <a href="mailto:kaohsiung@cjshs-alumni.org" class="email-link">✉ kaohsiung@cjshs-alumni.org</a>
+                </div>
+
+                <div class="clean-card">
+                    <span class="role">傳播組</span>
+                    <h3 class="name">劉家惠</h3>
+                    <p class="desc">傑出校友影音訪談</p>
+                    <a href="mailto:kaohsiung@cjshs-alumni.org" class="email-link">✉ kaohsiung@cjshs-alumni.org</a>
+                </div>
+
+                <div class="clean-card">
+                    <span class="role">傳播組</span>
+                    <h3 class="name">王筱婷</h3>
+                    <p class="desc">校友刊物編輯、活動包裝</p>
+                    <a href="mailto:kaohsiung@cjshs-alumni.org" class="email-link">✉ kaohsiung@cjshs-alumni.org</a>
+                </div>
+
+                <div class="clean-card">
+                    <span class="role">發展組</span>
+                    <h3 class="name">黃宗雄</h3>
+                    <p class="desc">活動策劃、對接窗口</p>
+                    <a href="mailto:kaohsiung@cjshs-alumni.org" class="email-link">✉ kaohsiung@cjshs-alumni.org</a>
+                </div>
+
+                <div class="clean-card">
+                    <span class="role">發展組</span>
+                    <h3 class="name">黃昭憲</h3>
+                    <p class="desc">整合校友企劃資源</p>
+                    <a href="mailto:kaohsiung@cjshs-alumni.org" class="email-link">✉ kaohsiung@cjshs-alumni.org</a>
+                </div>
+
+                <div class="clean-card">
+                    <span class="role">發展組</span>
+                    <h3 class="name">洪恒信</h3>
+                    <p class="desc">專案募款、產學合作</p>
+                    <a href="mailto:kaohsiung@cjshs-alumni.org" class="email-link">✉ kaohsiung@cjshs-alumni.org</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 區塊 3: 幕後團隊 -->
+        <section class="clean-group">
+            <div class="clean-group-header">
+                <h2>網頁設計及攝影師</h2>
+            </div>
+
+            <div class="clean-grid single">
+                <div class="clean-card media">
+                    <span class="role">首席攝影師 / 網站管理</span>
+                    <h3 class="name">陳柏睿</h3>
+                    <p class="desc">活動攝影、網站設計管理</p>
+                    <a href="mailto:media@cjshs-alumni.org" class="email-link">✉ media@cjshs-alumni.org</a>
+                </div>
+            </div>
+        </section>
 
     </main>
 
     <!-- Footer -->
-    <footer class="site-footer">
-        
-        
-
-        <div class="footer-directory-container">
-            <div class="directory-wrapper">
-                
-                <div class="dir-col dir-col-left">
-                    <h3 class="dir-brand-title">長榮中學 <span class="gold-text">校友會</span></h3>
-                    <p class="dir-brand-en">Chang Jung Senior High School</p>
-                    <div class="dir-version-tag">星火回歸動態系統 v1.0</div>
-                </div>
-
-                <div class="dir-col dir-col-center">
-                    <h3 class="dir-section-title">指導營運</h3>
-                    <div class="dir-divider"></div>
-                    <ul class="dir-list">
-                        <li>現任校長：許德勝 校長</li>
-                        <li>執行長：長榮中學 校友會 執行長</li>
-                        <li>協辦單位：長榮中學 校長室 / 總務處</li>
-                    </ul>
-                </div>
-
-                <div class="dir-col dir-col-right">
-                    <h3 class="dir-section-title">技術開發</h3>
-                    <div class="dir-divider"></div>
-                    <ul class="dir-list">
-                        <li>網頁製作：多媒體設計科 陳柏睿製作</li>
-                        <li>影像拍攝：多媒體設計科 陳柏睿製作</li>
-                        <li>地點：台南市東區林森路二段79號</li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div class="footer-unified-bottom">
-                <div class="dir-logo-wrapper">
-                    <img src="images/cjshs-logo.png" alt="長榮校徽" class="dir-school-logo">
-                </div>
-                <p class="copyright">&copy; 2026 長榮高級中學校友會. All Rights Reserved.</p>
-                <a href="#" class="btn-scroll-top">Back to Top ➔</a>
-            </div>
-        </div>
-
-    </footer>
+    <div id="site-footer-container"></div>
 
     <script src="script.js"></script>
 </body>

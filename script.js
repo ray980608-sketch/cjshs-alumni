@@ -122,3 +122,101 @@ document.addEventListener("DOMContentLoaded", function () {
     // 監聽視窗大小改變（防止在電腦版切換成手機模擬器時沒刷新）
     window.addEventListener('resize', initMobileMenu);
 });
+document.addEventListener("DOMContentLoaded", function () {
+    
+    // 🔗 填入 FB 粉專帳號名稱或 ID（例如 cjshs.alumni）
+    const fbPageHandle = "cjshs.alumni"; 
+    
+    // RSS2JSON 轉接 API
+    const fbApiUrl = `https://api.rss2json.com/v1/api.json?rss_url=https://rsshub.app/facebook/page/${fbPageHandle}`;
+
+    // 抓取 DOM 元素
+    const fbCard = document.querySelector(".news-custom-card.fb-border");
+    const fbImgEl = fbCard ? fbCard.querySelector(".news-card-img") : null;
+    const fbDateEl = document.getElementById("fb-card-date");
+    const fbTitleEl = document.getElementById("fb-card-title");
+    const fbTextEl = document.getElementById("fb-card-text");
+    const fbLinkEl = document.getElementById("fb-card-link");
+
+    if (fbTextEl && fbLinkEl) {
+        fetch(fbApiUrl)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "ok" && data.items && data.items.length > 0) {
+                    const latestPost = data.items[0]; // 取得最新貼文
+
+                    // 1. 格式化日期
+                    const postDate = new Date(latestPost.pubDate).toLocaleDateString('zh-TW', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit'
+                    });
+
+                    // 2. 處理貼文圖片 (優先抓取 thumbnail/enclosure，抓不到則用正则解析 HTML 裡面的 <img>)
+                    let postImageUrl = latestPost.thumbnail || (latestPost.enclosure ? latestPost.enclosure.link : null);
+                    
+                    if (!postImageUrl && latestPost.description) {
+                        const imgMatch = latestPost.description.match(/<img[^>]+src="([^">]+)"/);
+                        if (imgMatch && imgMatch[1]) {
+                            postImageUrl = imgMatch[1];
+                        }
+                    }
+
+                    // 如果有成功抓到貼文圖片，替換圖片並移除 logo 特殊 padding 樣式
+                    if (postImageUrl && fbImgEl) {
+                        fbImgEl.src = postImageUrl;
+                        fbImgEl.classList.remove("fb-img-contain"); // 切換回全幅裁切模式
+                    }
+
+                    // 3. 過濾 HTML 標籤，整理內文 (擷取 75 字)
+                    const cleanText = latestPost.description
+                        .replace(/<[^>]*>?/gm, '')
+                        .trim()
+                        .substring(0, 75) + "...";
+
+                    // 4. 注入 DOM
+                    if (fbDateEl) fbDateEl.textContent = `${postDate} · FB 最新動態`;
+                    if (fbTitleEl) fbTitleEl.textContent = latestPost.title || "FB 官方最新貼文";
+                    fbTextEl.textContent = cleanText;
+                    fbLinkEl.href = latestPost.link;
+                    fbLinkEl.textContent = "前往 FB 閱讀完整貼文 ➔";
+                }
+            })
+            .catch(error => {
+                console.log("FB 貼文動態抓取失敗，保持靜態預設畫面：", error);
+            });
+    }
+});
+// 當視窗大小改變時（如手機旋轉），自動重新整理 FB iframe 讓它重新計算最佳寬度
+let resizeTimer;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+        const fbIframe = document.querySelector('.fb-iframe-wrapper iframe');
+        if (fbIframe) {
+            // 重設 src 觸發重新渲染
+            fbIframe.src = fbIframe.src;
+        }
+    }, 300); // 停頓 0.3 秒後執行，避免頻繁刷新的效能消耗
+});
+function fitFbIframe() {
+    const container = document.querySelector('.fb-card-body');
+    const scaler = document.querySelector('.fb-scaler');
+    
+    if (container && scaler) {
+        const containerWidth = container.offsetWidth;
+        const targetWidth = 380; // FB 最佳寬度
+        
+        if (containerWidth < targetWidth) {
+            // 計算縮放比例
+            const scaleFactor = containerWidth / targetWidth;
+            scaler.style.transform = `scale(${scaleFactor})`;
+        } else {
+            scaler.style.transform = 'scale(1)';
+        }
+    }
+}
+
+// 頁面載入與視窗縮放時自動執行
+window.addEventListener('DOMContentLoaded', fitFbIframe);
+window.addEventListener('resize', fitFbIframe);

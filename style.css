@@ -3428,3 +3428,536 @@ body {
         align-items: flex-start;
     }
 }
+/* ==========================================================================
+   Section 13: 永久會員名單專用樣式 (171位高密度矩陣 & 搜尋框)
+   ========================================================================== */
+.member-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+/* 搜尋框樣式 */
+.member-search-box {
+    flex-shrink: 0;
+}
+
+.member-search-box input {
+    padding: 8px 16px;
+    font-size: 13.5px;
+    border: 1px solid rgba(13, 59, 43, 0.2);
+    border-radius: 20px;
+    outline: none;
+    background: #ffffff;
+    width: 240px;
+    transition: all 0.25s ease;
+}
+
+.member-search-box input:focus {
+    border-color: var(--cj-green);
+    box-shadow: 0 0 0 3px rgba(13, 59, 43, 0.1);
+    width: 280px;
+}
+
+/* 四欄高密度矩陣 */
+.member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.member-item {
+    background: #ffffff;
+    border: 1px solid rgba(13, 59, 43, 0.1);
+    border-left: 3px solid var(--cj-green);
+    border-radius: 4px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.member-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(13, 59, 43, 0.06);
+    border-left-color: var(--cj-gold);
+}
+
+.member-name {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.member-note {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+/* 📱 響應式調整 */
+@media (max-width: 600px) {
+    .member-header-flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .member-search-box {
+        width: 100%;
+    }
+
+    .member-search-box input {
+        width: 100%;
+    }
+
+    .member-search-box input:focus {
+        width: 100%;
+    }
+
+    .member-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+    }
+}
+/* ==========================================================================
+   Section 3: 全新獨立最新消息樣式 (News Custom Block)
+   ========================================================================== */
+.news-custom-section {
+    background-color: var(--bg-antique);
+    padding: 100px 0;
+    width: 100%;
+}
+
+.news-custom-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 80px;
+}
+
+.news-custom-header {
+    margin-bottom: 40px;
+}
+
+.news-custom-tag {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--cj-gold);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.news-custom-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 32px;
+    color: var(--cj-green);
+    margin: 0;
+}
+
+/* 網格三欄排列 */
+.news-custom-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* 卡片本體 */
+.news-custom-card {
+    background: #ffffff;
+    border: 1px solid rgba(13, 59, 43, 0.1);
+    border-top: 3px solid var(--cj-green);
+    border-radius: 4px;
+    padding: 28px 24px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.news-custom-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(13, 59, 43, 0.08);
+}
+
+/* 琥珀金頂邊框 */
+.news-custom-card.gold-border {
+    border-top-color: var(--cj-gold);
+}
+
+/* FB 藍頂邊框 */
+.news-custom-card.fb-border {
+    border-top-color: #1877f2;
+}
+
+.news-card-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.news-card-meta {
+    font-size: 12px;
+    color: #888888;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.news-card-meta.fb-text {
+    color: #1877f2;
+    font-weight: 600;
+}
+
+.news-card-heading {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+    color: var(--text-dark);
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.news-card-paragraph {
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.news-card-btn {
+    text-decoration: none;
+    color: var(--cj-green);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+}
+
+.news-card-btn:hover {
+    color: var(--cj-gold);
+}
+
+.news-card-btn.fb-btn {
+    color: #1877f2;
+}
+
+/* 📱 手機版 RWD 自適應 */
+@media (max-width: 992px) {
+    .news-custom-wrapper {
+        padding: 0 25px;
+    }
+    
+    .news-custom-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+/* ==========================================================================
+   Section 3: 全新獨立最新消息樣式 (含圖片樣式)
+   ========================================================================== */
+.news-custom-section {
+    background-color: var(--bg-antique);
+    padding: 100px 0;
+    width: 100%;
+}
+
+.news-custom-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 80px;
+}
+
+.news-custom-header {
+    margin-bottom: 40px;
+}
+
+.news-custom-tag {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--cj-gold);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.news-custom-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 32px;
+    color: var(--cj-green);
+    margin: 0;
+}
+
+/* 網格三欄排列 */
+.news-custom-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* 卡片本體 (滿版溢出隱藏，保證圖片邊角好看) */
+.news-custom-card {
+    background: #ffffff;
+    border: 1px solid rgba(13, 59, 43, 0.1);
+    border-top: 3px solid var(--cj-green);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.news-custom-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(13, 59, 43, 0.08);
+}
+
+/* 🖼️ 封面圖片容器 */
+.news-card-img-box {
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+    background-color: #f0f2f1;
+}
+
+.news-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 自動裁切不拉邊變形 */
+    transition: transform 0.5s ease;
+}
+
+/* FB 卡片特別處理：如果放校徽，採用置中等比例不裁切 */
+.news-card-img.fb-img-contain {
+    object-fit: contain;
+    padding: 20px;
+    background-color: #f7f9f8;
+}
+
+.news-custom-card:hover .news-card-img {
+    transform: scale(1.04); /* 滑過時圖片微放大動效 */
+}
+
+/* 琥珀金頂邊框 */
+.news-custom-card.gold-border {
+    border-top-color: var(--cj-gold);
+}
+
+/* FB 藍頂邊框 */
+.news-custom-card.fb-border {
+    border-top-color: #1877f2;
+}
+
+/* 文字內容包裝盒 */
+.news-card-inner {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.news-card-meta {
+    font-size: 12px;
+    color: #888888;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.news-card-meta.fb-text {
+    color: #1877f2;
+    font-weight: 600;
+}
+
+.news-card-heading {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 19px;
+    color: var(--text-dark);
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.news-card-paragraph {
+    font-size: 13.5px;
+    color: #555555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.news-card-btn {
+    text-decoration: none;
+    color: var(--cj-green);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+}
+
+.news-card-btn:hover {
+    color: var(--cj-gold);
+}
+
+.news-card-btn.fb-btn {
+    color: #1877f2;
+}
+
+/* 📱 手機版 RWD 自適應 */
+@media (max-width: 992px) {
+    .news-custom-wrapper {
+        padding: 0 25px;
+    }
+    
+    .news-custom-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+/* ==========================================
+   FB Page Plugin 響應式防裁切修復
+   ========================================== */
+
+/* 1. 卡片外框重設：確保滿版且移除不必要的內距 */
+.news-custom-card.fb-card-responsive {
+    padding: 0 !important;
+    overflow: hidden;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2. iframe 包裹容器：寬度 100% 自動強置置中 */
+.fb-iframe-wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+/* 3. 強制 iframe 填滿容器且防止硬撐破版 */
+.fb-iframe-wrapper iframe {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 480px;
+    border: none;
+    overflow: hidden;
+}
+
+/* 4. 手機版微調 (螢幕寬度 768px 以下) */
+@media (max-width: 768px) {
+    .fb-iframe-wrapper {
+        min-height: 450px;
+    }
+    .fb-iframe-wrapper iframe {
+        min-height: 450px;
+    }
+}
+/* 自訂 FB 卡片外觀 */
+.news-custom-card.fb-custom-styled {
+    padding: 0 !important;
+    background: #ffffff;
+    border: 1px solid rgba(24, 119, 242, 0.15); /* 淡淡的 FB 品牌藍邊框 */
+    border-top: 3px solid #1877f2; /* 頂部 FB 品牌色強調線 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* 高質感頂部列 */
+.fb-card-header {
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fafafa;
+    border-bottom: 1px solid #eee;
+}
+
+.fb-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1877f2;
+    letter-spacing: 0.5px;
+}
+
+/* 綠色/藍色呼吸燈訊號點 */
+.fb-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #1877f2;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
+}
+
+.fb-follow-btn {
+    font-size: 13px;
+    color: var(--cj-green, #0d3b2b);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.fb-follow-btn:hover {
+    opacity: 0.7;
+}
+
+/* iframe 容器適應 */
+.fb-card-body {
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+}
+
+.fb-card-body iframe {
+    width: 100% !important;
+    height: 100% !important;
+}
+/* 外層固定的卡片容器 */
+.fb-card-body {
+    width: 100%;
+    height: 440px;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+}
+
+/* 核心：把寬度硬性定在 380px（FB 最舒適呈現寬度），讓縮放中心靠左上 */
+.fb-scaler {
+    width: 380px;
+    height: 500px;
+    transform-origin: top left;
+    transition: transform 0.2s ease;
+}
+
+.fb-scaler iframe {
+    width: 380px !important;
+    height: 500px !important;
+    border: none;
+}
+
+/* 📱 手機版微縮控制 (當卡片寬度不夠 380px 時自動按比例縮小) */
+@media (max-width: 420px) {
+    .fb-scaler {
+        /* 將 380px 縮放到適合 iPhone/Android 螢幕的大小 (約 85%~88%) */
+        transform: scale(0.86); 
+    }
+}
+
+@media (max-width: 360px) {
+    .fb-scaler {
+        /* 超窄螢幕（如 iPhone SE）自動縮放至 78% */
+        transform: scale(0.78); 
+    }
+}
