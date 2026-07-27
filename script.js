@@ -220,3 +220,122 @@ function fitFbIframe() {
 // 頁面載入與視窗縮放時自動執行
 window.addEventListener('DOMContentLoaded', fitFbIframe);
 window.addEventListener('resize', fitFbIframe);
+
+// 核心動態渲染邏輯 (防爆安全修正版)
+function renderNews() {
+    const gridContainer = document.getElementById('news-grid-container');
+    const listContainer = document.getElementById('js-history-list');
+    
+    // 安全檢查：如果這個頁面沒有新聞容器，直接優雅退出，不影響後續腳本
+    if (!gridContainer || !listContainer) return;
+
+    gridContainer.innerHTML = '';
+    listContainer.innerHTML = '';
+
+    // 檢查 newsData 是否存在
+    if (typeof newsData === 'undefined' || !Array.isArray(newsData)) return;
+
+    // ✨ 邏輯分流 A：抓取前 3 篇最新消息
+    const featuredNews = newsData.slice(0, 3);
+    featuredNews.forEach((news, index) => {
+        const isFeatured = index === 0 ? 'featured-card' : '';
+        const autoExcerpt = generateExcerpt(news.fullContent);
+
+        const cardHtml = `
+            <article class="news-card ${isFeatured}">
+                <div class="news-img-box">
+                    <img src="${news.imgUrl}" alt="${news.title}" class="news-img">
+                </div>
+                <div class="news-content">
+                    <div class="news-meta">
+                        <span class="news-date">${news.date}</span>
+                        <span class="news-category">${news.category}</span>
+                    </div>
+                    <h3 class="news-title">${news.title}</h3>
+                    <p class="news-excerpt">${autoExcerpt}</p>
+                    <a href="news-detail.html?id=${news.id}" class="news-read-more">閱讀全文 ➔</a>
+                </div>
+            </article>
+        `;
+        gridContainer.innerHTML += cardHtml;
+    });
+
+    // ✨ 邏輯分流 B：歷史列表
+    const historyNews = newsData.slice(3);
+    const historySection = document.querySelector('.history-news-section');
+    
+    if (historyNews.length === 0) {
+        // 🔒 安全修復：加上 historySection ? 判斷，就算 HTML 找不到這個 Class 也絕對不爆錯！
+        if (historySection) historySection.style.display = 'none';
+    } else {
+        if (historySection) historySection.style.display = 'block';
+        historyNews.forEach(news => {
+            const listItemHtml = `
+                <li class="history-item">
+                    <a href="news-detail.html?id=${news.id}" class="history-item-link">
+                        <div class="history-item-meta">
+                            <span class="h-date">${news.date}</span>
+                            <span class="h-badge">${news.category}</span>
+                        </div>
+                        <h4 class="history-item-title">${news.title}</h4>
+                        <span class="history-item-arrow">➔</span>
+                    </a>
+                </li>
+            `;
+            listContainer.innerHTML += listItemHtml;
+        });
+    }
+}
+
+// 自動載入 Header & Footer 的組件載入器
+document.addEventListener("DOMContentLoaded", function () {
+    const headerContainer = document.getElementById("site-header-container");
+    if (headerContainer) {
+        fetch("header.html")
+            .then(response => {
+                if (!response.ok) throw new Error("Header 載入失敗");
+                return response.text();
+            })
+            .then(html => {
+                headerContainer.innerHTML = html;
+                initMobileMenu(); // 載入完 HTML 後重新綁定手機選單事件
+            })
+            .catch(err => console.warn("Header 載入異常：", err));
+    }
+});
+
+// ==========================================================================
+// 全站通用組件動態載入器 (Header & Footer)
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", function () {
+    
+    // 1. 動態載入 Header
+    const headerContainer = document.getElementById("site-header-container");
+    if (headerContainer) {
+        fetch("header.html")
+            .then(response => {
+                if (!response.ok) throw new Error("Header 載入失敗");
+                return response.text();
+            })
+            .then(html => {
+                headerContainer.innerHTML = html;
+                initMobileMenu(); // ⚠️ Header 載入完成後，必須重新綁定手機版下拉選單事件！
+            })
+            .catch(err => console.warn("Header 載入異常：", err));
+    }
+
+    // 2. 動態載入 Footer
+    const footerContainer = document.getElementById("site-footer-container");
+    if (footerContainer) {
+        fetch("footer.html")
+            .then(response => {
+                if (!response.ok) throw new Error("Footer 載入失敗");
+                return response.text();
+            })
+            .then(html => {
+                footerContainer.innerHTML = html;
+            })
+            .catch(err => console.warn("Footer 載入異常：", err));
+    }
+
+});
