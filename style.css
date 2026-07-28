@@ -4006,3 +4006,38 @@ html, body {
         pointer-events: auto !important; /* 恢復選單點擊功能 */
     }
 }
+@media (max-width: 992px) {
+    /* 1. 漢堡按鈕：提升 z-index 確保永遠浮在滑出的選單最頂層 */
+    .hamburger-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 18px;
+        cursor: pointer;
+        z-index: 10005 !important; /* 👈 關鍵：必須高於 .main-nav 的 10000！ */
+    }
+
+    /* 2. 手機版抽屜選單本體 */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75vw;
+        height: 100vh;
+        background-color: var(--bg-antique);
+        padding: 100px 30px 40px 30px;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), visibility 0.4s;
+        z-index: 10000; /* 👈 選單層級 */
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    /* 3. 展開狀態 */
+    .menu-toggle-input:checked ~ .main-nav {
+        right: 0 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+}
