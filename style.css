@@ -4041,3 +4041,68 @@ html, body {
         pointer-events: auto !important;
     }
 }
+/* ==========================================================================
+   Footer 社群按鈕樣式 (FB / IG / Threads)
+   ========================================================================== */
+.footer-social-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-icon-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%; /* 完美正圓形 */
+    background-color: rgba(0, 0, 0, 0.25); /* 深色內斂半透明底 */
+    border: 1px solid rgba(244, 240, 234, 0.15); /* 細微邊框 */
+    color: var(--bg-antique, #F4F0EA);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* 滑過時的奢華金色互動回饋 */
+.social-icon-btn:hover {
+    background-color: var(--cj-gold, #C5A059); /* 背景變琥珀金 */
+    color: var(--cj-green, #0D3B2B);           /* 文字變深長榮綠 */
+    border-color: var(--cj-gold, #C5A059);
+    transform: translateY(-3px);                /* 微大幅度浮起 */
+    box-shadow: 0 6px 15px rgba(197, 160, 89, 0.25);
+}
+/* ==========================================================================
+   🚀 終極防跑版：解決手機版「右側出現大片空白」的問題
+   ========================================================================== */
+
+/* 1. 徹底鎖定最外層，強制切斷所有超出螢幕的元素 */
+html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden !important;
+    position: relative; /* 👈 關鍵：能鎖住裡面亂跑的 absolute 元素 */
+}
+
+/* 2. 強制所有圖片與 iframe (包含 FB) 絕對不能超過父元素的寬度 */
+img, iframe, video {
+    max-width: 100% !important;
+}
+
+/* 3. 確保手機版選單不會把畫面撐寬 */
+@media (max-width: 992px) {
+    .main-nav {
+        /* 👈 關鍵：必須是 fixed，如果是 absolute 就會往右撐出「一整頁的空白」 */
+        position: fixed !important; 
+    }
+    
+    /* 修正 FB iframe 外層的縮放容器，避免它撐爆網格 */
+    .fb-scaler {
+        width: 100%;
+        overflow: hidden;
+    }
+}
