@@ -3961,54 +3961,48 @@ body {
         transform: scale(0.78); 
     }
 }
-/* ==========================================
-   導覽列定位修正（留在最上方，不跟隨滾動）
-   ========================================== */
-.site-header {
-    position: absolute !important; /* 置頂於 Hero 區塊上，但不跟隨畫面滾動 */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999 !important; /* 保持高層級，避免被卡片或 iframe 蓋過 */
-}
-/* 防範全站手機版橫向溢出 */
+/* 1. 確保由最外層鎖住手機版右側溢出，不要鎖在 Header 上 */
 html, body {
     width: 100%;
     max-width: 100vw;
-    overflow-x: hidden !important; /* 強制切掉螢幕右側溢出的所有內容 */
-    position: relative;
+    overflow-x: hidden !important;
 }
+
 @media (max-width: 992px) {
-    /* 1. Header 本身要鎖住溢出 */
+    /* 2. Header 本身取消 overflow: hidden，讓抽屜選單能正常露出來 */
     .site-header {
         position: absolute !important;
         top: 0;
         left: 0;
         width: 100%;
         z-index: 9999 !important;
-        overflow: hidden; /* 防止抽屜選單拉出去時拉長 Header 寬度 */
+        overflow: visible !important; /* 👈 關鍵：改成 visible，選單才不會被切掉！ */
     }
 
-    /* 2. 手機版抽屜選單本體 */
+    /* 3. 抽屜選單本體 */
     .main-nav {
         position: fixed;
         top: 0;
-        right: -100%; /* 預設推到右側螢幕外 */
-        width: 80%;   /* 選單寬度，建議設 75%~80% 比較不會擠壓 */
+        right: -100%; /* 預設收在右側螢幕外 */
+        width: 75vw;  /* 使用 75vw 佔螢幕 75% 寬度 */
         height: 100vh;
         background-color: var(--bg-antique);
         padding: 100px 30px 40px 30px;
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
-        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        
+        /* 動畫過渡：滑出時順暢 */
+        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), visibility 0.4s;
         z-index: 10000;
         
-        /* 🔥 關鍵點：加上 display 與 visibility 控制，收合時徹底消失 */
-        visibility: hidden; 
+        /* 預設隱藏且不可點擊 */
+        visibility: hidden;
+        pointer-events: none;
     }
 
-    /* 3. 當點擊漢堡選單展開時 (checked) */
+    /* 4. 點擊漢堡選單展開時 (checked) */
     .menu-toggle-input:checked ~ .main-nav {
-        right: 0;
-        visibility: visible; /* 展開時才看的到，徹底杜絕畫面外殘影 */
+        right: 0 !important; /* 順暢滑入畫面 */
+        visibility: visible !important;
+        pointer-events: auto !important; /* 恢復選單點擊功能 */
     }
 }
