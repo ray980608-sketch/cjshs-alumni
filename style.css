@@ -3852,15 +3852,7 @@ body {
     overflow: hidden;
 }
 
-/* 4. 手機版微調 (螢幕寬度 768px 以下) */
-@media (max-width: 768px) {
-    .fb-iframe-wrapper {
-        min-height: 450px;
-    }
-    .fb-iframe-wrapper iframe {
-        min-height: 450px;
-    }
-}
+
 /* 自訂 FB 卡片外觀 */
 .news-custom-card.fb-custom-styled {
     padding: 0 !important;
@@ -3947,20 +3939,7 @@ body {
     border: none;
 }
 
-/* 📱 手機版微縮控制 (當卡片寬度不夠 380px 時自動按比例縮小) */
-@media (max-width: 420px) {
-    .fb-scaler {
-        /* 將 380px 縮放到適合 iPhone/Android 螢幕的大小 (約 85%~88%) */
-        transform: scale(0.86); 
-    }
-}
 
-@media (max-width: 360px) {
-    .fb-scaler {
-        /* 超窄螢幕（如 iPhone SE）自動縮放至 78% */
-        transform: scale(0.78); 
-    }
-}
 /* 1. 確保由最外層鎖住手機版右側溢出，不要鎖在 Header 上 */
 html, body {
     width: 100%;
@@ -3968,16 +3947,7 @@ html, body {
     overflow-x: hidden !important;
 }
 
-@media (max-width: 992px) {
-    /* 2. Header 本身取消 overflow: hidden，讓抽屜選單能正常露出來 */
-    .site-header {
-        position: absolute !important;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 9999 !important;
-        overflow: visible !important; /* 👈 關鍵：改成 visible，選單才不會被切掉！ */
-    }
+
 
     /* 3. 抽屜選單本體 */
     .main-nav {
@@ -4005,7 +3975,7 @@ html, body {
         visibility: visible !important;
         pointer-events: auto !important; /* 恢復選單點擊功能 */
     }
-}
+
 @media (max-width: 992px) {
     /* 1. 漢堡按鈕：提升 z-index 確保永遠浮在滑出的選單最頂層 */
     .hamburger-btn {
@@ -4093,16 +4063,268 @@ img, iframe, video {
     max-width: 100% !important;
 }
 
-/* 3. 確保手機版選單不會把畫面撐寬 */
+
+
+
+/* ==========================================================================
+   ✨ FB Page 完美比例微縮（徹底解決右側字體與圖片被裁切問題）
+   ========================================================================== */
+
+/* 1. 卡片外框 */
+.news-custom-card.fb-custom-styled {
+    padding: 0 !important;
+    background: #ffffff;
+    border: 1px solid rgba(24, 119, 242, 0.15);
+    border-top: 3px solid #1877f2;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* 2. 外層固定視窗容器 */
+.fb-card-body {
+    width: 100%;
+    height: 480px; /* 控制在卡片裡顯示的高度 */
+    overflow: hidden;
+    position: relative;
+    background: #ffffff;
+    display: flex;
+    justify-content: center; /* 垂直水平置中 */
+}
+
+/* 3. 電腦版預設：500px 寬度自然呈現 */
+.fb-scaler {
+    width: 500px;
+    height: 600px;
+    transform-origin: top center; /* 以頂部中央為基準縮放 */
+}
+
+.fb-scaler iframe {
+    width: 500px !important;
+    height: 600px !important;
+    border: none !important;
+}
+
+/* 📱 4. 手機版 RWD：關鍵 transform: scale() 縮放 */
 @media (max-width: 992px) {
-    .main-nav {
-        /* 👈 關鍵：必須是 fixed，如果是 absolute 就會往右撐出「一整頁的空白」 */
-        position: fixed !important; 
+    .fb-card-body {
+        height: 420px; /* 手機版適當的高度 */
+    }
+
+    .fb-scaler {
+        /* 將 500px 的 FB 畫面，等比例縮小到 68%~72% 左右，完全嵌入手機螢幕！ */
+        transform: scale(0.7);
+    }
+}
+
+/* 📱 針對螢幕更窄的手機（如 iPhone SE / 360px 寬手機）做微調 */
+@media (max-width: 380px) {
+    .fb-card-body {
+        height: 380px;
     }
     
-    /* 修正 FB iframe 外層的縮放容器，避免它撐爆網格 */
     .fb-scaler {
+        transform: scale(0.62); /* 再縮小一點，確保 100% 不會撞到右邊邊框 */
+    }
+}
+/* ==========================================================================
+   🚀 終極修復：全站防跑版 & FB 專用手機縮放 (無語法錯誤版)
+   ========================================================================== */
+
+/* 全頁防 X 軸爆框 */
+html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden !important;
+    position: relative;
+}
+
+/* 圖片與多媒體安全防禦 */
+img, video {
+    max-width: 100%;
+}
+
+/* 抽屜選單與漢堡按鈕 z-index 規範 */
+@media (max-width: 992px) {
+    .site-header {
+        position: absolute !important;
+        top: 0;
+        left: 0;
         width: 100%;
-        overflow: hidden;
+        z-index: 9999 !important;
+        overflow: visible !important;
+    }
+
+    .hamburger-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 18px;
+        cursor: pointer;
+        z-index: 10005 !important;
+    }
+
+    .main-nav {
+        position: fixed !important;
+        top: 0;
+        right: -100%;
+        width: 75vw;
+        height: 100vh;
+        background-color: var(--bg-antique);
+        padding: 100px 30px 40px 30px;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), visibility 0.4s;
+        z-index: 10000;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .menu-toggle-input:checked ~ .main-nav {
+        right: 0 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+}
+
+/* Footer 社群圓形按鈕 */
+.footer-social-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-icon-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(244, 240, 234, 0.15);
+    color: var(--bg-antique, #F4F0EA);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.social-icon-btn:hover {
+    background-color: var(--cj-gold, #C5A059);
+    color: var(--cj-green, #0D3B2B);
+    border-color: var(--cj-gold, #C5A059);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(197, 160, 89, 0.25);
+}
+
+/* ==========================================================================
+   ✨ FB Page 專用完美微縮（針對 500px 寬度縮小，完全不切邊）
+   ========================================================================== */
+
+.news-custom-card.fb-custom-styled {
+    padding: 0 !important;
+    background: #ffffff;
+    border: 1px solid rgba(24, 119, 242, 0.15);
+    border-top: 3px solid #1877f2;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.fb-card-body {
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    position: relative;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.fb-scaler {
+    width: 500px !important;
+    height: 600px !important;
+    transform-origin: top center !important;
+}
+
+.fb-scaler iframe {
+    width: 500px !important;
+    height: 600px !important;
+    border: none !important;
+}
+
+/* 📱 手機版微縮：將 500px 硬縮到約 330px 寬度內 */
+@media (max-width: 992px) {
+    .fb-card-body {
+        height: 430px !important;
+    }
+
+    .fb-scaler {
+        transform: scale(0.66) !important; /* 👈 關鍵微縮比例，保證完全塞進手機卡片 */
+    }
+}
+
+@media (max-width: 380px) {
+    .fb-card-body {
+        height: 390px !important;
+    }
+    
+    .fb-scaler {
+        transform: scale(0.58) !important;
+    }
+}
+/* ==========================================================================
+   🖥️ 電腦版導覽列（第一層橫排，子選單維持標準下拉）
+   ========================================================================== */
+@media (min-width: 993px) {
+    .site-header {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 20px 80px !important;
+        z-index: 1000 !important;
+        overflow: visible !important;
+    }
+
+    .main-nav {
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        background-color: transparent !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* 只有第一層 (direct child >) 才是橫排 */
+    .main-nav > ul {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 40px !important;
+        list-style: none !important;
+    }
+
+    .main-nav > ul > li > a {
+        white-space: nowrap !important;
+        display: inline-block !important;
+        font-size: 14px !important;
+        letter-spacing: 1.5px !important;
+    }
+
+    .hamburger-btn, 
+    .menu-toggle-input {
+        display: none !important;
     }
 }

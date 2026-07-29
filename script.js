@@ -199,27 +199,7 @@ window.addEventListener('resize', function() {
         }
     }, 300); // 停頓 0.3 秒後執行，避免頻繁刷新的效能消耗
 });
-function fitFbIframe() {
-    const container = document.querySelector('.fb-card-body');
-    const scaler = document.querySelector('.fb-scaler');
-    
-    if (container && scaler) {
-        const containerWidth = container.offsetWidth;
-        const targetWidth = 380; // FB 最佳寬度
-        
-        if (containerWidth < targetWidth) {
-            // 計算縮放比例
-            const scaleFactor = containerWidth / targetWidth;
-            scaler.style.transform = `scale(${scaleFactor})`;
-        } else {
-            scaler.style.transform = 'scale(1)';
-        }
-    }
-}
 
-// 頁面載入與視窗縮放時自動執行
-window.addEventListener('DOMContentLoaded', fitFbIframe);
-window.addEventListener('resize', fitFbIframe);
 
 // 核心動態渲染邏輯 (防爆安全修正版)
 function renderNews() {
@@ -325,39 +305,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // 2. 動態載入 Footer
-    const footerContainer = document.getElementById("site-footer-container");
-    if (footerContainer) {
-        fetch("footer.html")
-            .then(response => {
-                if (!response.ok) throw new Error("Footer 載入失敗");
-                return response.text();
-            })
-            .then(html => {
-                footerContainer.innerHTML = html;
-            })
-            .catch(err => console.warn("Footer 載入異常：", err));
-    }
-
-});
-// 全站通用組件動態載入器 (Header & 子頁面 Footer)
-document.addEventListener("DOMContentLoaded", function () {
-    
-    // 1. 動態載入 Header (全站共用)
-    const headerContainer = document.getElementById("site-header-container");
-    if (headerContainer) {
-        fetch("header.html")
-            .then(response => {
-                if (!response.ok) throw new Error("Header 載入失敗");
-                return response.text();
-            })
-            .then(html => {
-                headerContainer.innerHTML = html;
-                initMobileMenu(); // 綁定手機版下拉選單事件
-            })
-            .catch(err => console.warn("Header 載入異常：", err));
-    }
-
-    // 2. 動態載入 Footer (僅在有 #site-footer-container 的子頁面生效，不會影響 index)
     const footerContainer = document.getElementById("site-footer-container");
     if (footerContainer) {
         fetch("footer.html")
