@@ -399,3 +399,62 @@ function renderIndexNews() {
 
 // 頁面載入後自動觸發渲染
 document.addEventListener('DOMContentLoaded', renderIndexNews);
+
+// 假設這是你載入 Header 的邏輯
+const pathPrefix = getPathPrefix(); // 自動計算目前頁面需要退幾層
+
+fetch(pathPrefix + 'header.html') // 自動抓取正確位置的 header.html
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+
+        // 💡 關鍵修正：將 Header 內所有帶有 ../ 的路徑，統一修正為目前頁面該有的相對層級
+        const elements = document.querySelectorAll('#header-container a, #header-container img');
+        
+        elements.forEach(el => {
+            ['href', 'src'].forEach(attr => {
+                const val = el.getAttribute(attr);
+                // 如果原本路徑是以 ../ 開頭
+                if (val && val.startsWith('../')) {
+                    // 先把原本的 ../ 拿掉，再加上目前頁面正確的 pathPrefix
+                    const cleanPath = val.replace(/^(\.\.\/)+/, '');
+                    el.setAttribute(attr, pathPrefix + cleanPath);
+                }
+            });
+        });
+    });
+
+/**
+ * 🧮 自動計算當前頁面相對於專案根目錄的層級前綴
+ * 如果在首頁 (index.html) -> 回傳 ""
+ * 如果在一層子資料夾 (about/about.html) -> 回傳 "../"
+ * 如果在兩層子資料夾 (a/b/page.html) -> 回傳 "../../"
+ */
+function getPathPrefix() {
+    const path = window.location.pathname;
+    
+    // 如果是首頁或根目錄，回傳空字串
+    if (path.endsWith('/') || path.endsWith('/index.html')) {
+        return '';
+    }
+
+    // 計算專案名稱後面的子資料夾深度
+    // 以 GitHub Pages 網址 /cjshs-alumni/about/about.html 為例：
+    // 切割後的層級數可以準確算出需要補幾個 ../
+    const segments = path.split('/').filter(Boolean);
+    
+    // 如果網址包含 repository 名稱 (cjshs-alumni)，扣除專案名與檔名
+    const repoName = 'cjshs-alumni'; // 👈 請確認這跟你的 GitHub 儲存庫名稱完全一致
+    let depth = 0;
+    
+    if (segments.includes(repoName)) {
+        const repoIndex = segments.indexOf(repoName);
+        // 深度 = 總長度 - 專案目錄索引 - 1(專案本身) - 1(檔名)
+        depth = segments.length - repoIndex - 2;
+    } else {
+        // 本地 Live Server 情況 (沒有 repository 名稱)
+        depth = segments.length - 1;
+    }
+
+    return '../'.repeat(Math.max(0, depth));
+}
