@@ -319,3 +319,42 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+// ==========================================================================
+// 全站通用組件動態載入器 (Header & Footer 自動相容子資料夾)
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", function () {
+    // 自動判斷是否在子資料夾 (例如 /about/)
+    const isInSubfolder = window.location.pathname.includes('/about/') || window.location.pathname.split('/').length > 2;
+    const basePath = isInSubfolder ? '../' : './';
+
+    // 1. 動態載入 Header
+    const headerContainer = document.getElementById("site-header-container");
+    if (headerContainer) {
+        fetch(basePath + "header.html")
+            .then(response => {
+                if (!response.ok) throw new Error("Header 載入失敗");
+                return response.text();
+            })
+            .then(html => {
+                headerContainer.innerHTML = html;
+                if (typeof initMobileMenu === 'function') {
+                    initMobileMenu(); // 綁定手機版菜單
+                }
+            })
+            .catch(err => console.warn("Header 載入異常：", err));
+    }
+
+    // 2. 動態載入 Footer
+    const footerContainer = document.getElementById("site-footer-container");
+    if (footerContainer) {
+        fetch(basePath + "footer.html")
+            .then(response => {
+                if (!response.ok) throw new Error("Footer 載入失敗");
+                return response.text();
+            })
+            .then(html => {
+                footerContainer.innerHTML = html;
+            })
+            .catch(err => console.warn("Footer 載入異常：", err));
+    }
+});
