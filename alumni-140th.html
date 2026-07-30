@@ -9,107 +9,7 @@
 <body class="sub-page">
 
     <!-- Header (全站同步) -->
-    <header class="site-header">
-        <a href="index.html" class="brand-link">
-            <img src="cjshs.png" alt="長榮校徽" class="school-logo-img">
-            <div class="logo-title">
-                <span class="sub">我是長榮人</span>
-                <span class="main">星火回家</span>
-            </div>
-        </a>
-        
-        <input type="checkbox" id="menu-toggle" class="menu-toggle-input">
-        <label for="menu-toggle" class="hamburger-btn">
-            <span></span> <span></span> <span></span>
-        </label>
-
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">首頁</a></li>
-                
-                <!-- 關於我們 下拉選單 -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">關於我們 ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="board.html">理監事名單</a></li>
-                        <li><a href="charter.html">組織章程</a></li>
-                        <li><a href="staff.html">辦公室成員</a></li>
-                        <li><a href="members.html">永久會員</a></li>
-                        <li><a href="chapters.html">分會幹部</a></li>
-                        <li><a href="anthem.html">歷屆校歌</a></li>
-                        <li class="nested-dropdown">
-                            <a href="#" class="nested-toggle">傑出校友 ▸</a>
-                            <ul class="nested-menu">
-                                <li><a href="alumni-rules.html">傑出校友遴選辦法</a></li>
-                                <li><a href="alumni-history.html">歷屆傑出校友名錄</a></li>
-                                <li><a href="alumni-140th.html">140週年傑出校友名錄</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- 活動訊息 下拉選單 -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">活動訊息 ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="index.html#news">最新活動</a></li>
-                        <li><a href="events-review.html">活動回顧</a></li>
-                        <li class="nested-dropdown">
-                            <a href="#" class="nested-toggle">活動剪影 ▸</a>
-                            <ul class="nested-menu">
-                                <li><a href="gallery-alumni.html">校友活動</a></li>
-                                <li><a href="gallery-students.html">在校生活動</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- 校友服務 下拉選單 -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">校友服務 ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="documents.html">各項證件申請</a></li>
-                        <li><a href="profile-update.html">校友資料更新</a></li>
-                        <li><a href="reunion.html">回校舉辦同學會</a></li>
-                        <li><a href="photography.html">回校古蹟景點拍攝</a></li>
-                        <li><a href="industry-consulting.html">長榮人產業諮詢</a></li>
-                        <li><a href="industry-map.html">長榮人產業地圖</a></li>
-                    </ul>
-                </li>
-
-                <!-- 更多選項 下拉選單 -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">更多選項 ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="https://www.cjshs.tn.edu.tw/" target="_blank">母校長中官網</a></li>
-                        <li class="nested-dropdown">
-                            <a href="#" class="nested-toggle">加入校友會 ▸</a>
-                            <ul class="nested-menu">
-                                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSe7tYzG9ApGoW6fAe0eO6XOte74KEQQxfrSMY1hhPNYBUpIfg/viewform" target="_blank">線上申請表單</a></li>
-                                <li><a href="card-reissue.html">數位校友卡補發</a></li>
-                            </ul>
-                        </li>
-                        <li class="nested-dropdown">
-                            <a href="#" class="nested-toggle">長中人文 ▸</a>
-                            <ul class="nested-menu">
-                                <li><a href="people.html">長中人物誌</a></li>
-                                <li><a href="stories.html">長中歷史故事</a></li>
-                            </ul>
-                        </li>
-                        <li class="nested-dropdown">
-                            <a href="#" class="nested-toggle">愛校護校 ▸</a>
-                            <ul class="nested-menu">
-                                <li><a href="heritage-donation.html">古蹟認獻計畫</a></li>
-                                <li><a href="glory-inherit.html">母校榮譽繼承</a></li>
-                                <li><a href="equipment-update.html">軟硬體設備維護</a></li>
-                                <li><a href="support-others.html">其他技術支援</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <div id="site-header-container"></div>
 
     <!-- Sub-Hero Zone -->
     <section class="sub-hero-section">
@@ -124,43 +24,118 @@
 
     <main class="clean-chapters-container">
         
-        <!-- 1. 藝文體育類 -->
+        <!-- 1. 教育學術類 -->
+        <section class="clean-group">
+            <div class="clean-group-header">
+                <h2>🎓 教育學術類</h2>
+            </div>
+            
+            <div class="alumni-compact-grid">
+                <!-- 戴憲次 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/dai-hsien-ci.jpg" alt="戴憲次校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">戴憲次 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">1957 年高中部</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>學歷：</strong>中原大學水利工程系學士／高師大教研所</li>
+                        <li><strong>經歷：</strong>長榮中學教務組長、教務主任</li>
+                    </ul>
+                </div>
+
+                <!-- 謝季宏 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/xie-ji-hong.jpg" alt="謝季宏校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">謝季宏 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">1964 年高中部</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>學歷：</strong>政大教研所／美國北科羅拉多大學博士</li>
+                        <li><strong>經歷：</strong>高師大副教務長、長榮大學秘書長、長榮中學第22屆董事長</li>
+                    </ul>
+                </div>
+
+                <!-- 梁瑞琪 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/liang-rui-qi.jpg" alt="梁瑞琪校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">梁瑞琪 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">1988 年高中部</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>學歷：</strong>中正大學高齡者教育研究所博士</li>
+                        <li><strong>現任/經歷：</strong>土城社區大學副校長／空中大學臺南指導中心執行長</li>
+                    </ul>
+                </div>
+
+                <!-- 毛泰源 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/mao-tai-yuan.jpg" alt="毛泰源校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">毛泰源 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">1986 年國中部</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>學歷：</strong>台南大學學校經營碩士</li>
+                        <li><strong>現任：</strong>路竹國小校長</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 藝文體育類 -->
         <section class="clean-group">
             <div class="clean-group-header">
                 <h2>🏆 藝文體育類</h2>
             </div>
 
             <div class="alumni-compact-grid">
+                <!-- 張子濱 -->
                 <div class="alumni-compact-card">
                     <div class="alumni-compact-header">
                         <div class="alumni-compact-photo-box">
-                            <img src="images/chen-bo-rui.jpg" alt="陳柏睿校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                            <img src="images/zhang-zi-bin.jpg" alt="張子濱校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
                         </div>
                         <div class="alumni-compact-info">
-                            <h3 class="alumni-compact-name">陳柏睿 <span class="alumni-suffix">校友</span></h3>
+                            <h3 class="alumni-compact-name">張子濱 <span class="alumni-suffix">校友</span></h3>
                             <div class="alumni-edu-tags">
-                                <span class="edu-chip">2024 國中部</span>
-                                <span class="edu-chip">2027 多媒體設計科</span>
+                                <span class="edu-chip">1968 年高中部</span>
                             </div>
                         </div>
                     </div>
-                    
                     <ul class="alumni-compact-exp">
-                        <li><strong>現任：</strong>統一7-ELEVEn獅隊一號隊友 / 中信兄弟爪迷</li>
-                        <li><strong>曾任：</strong>長榮中學首席攝影師</li>
-                        <li><strong>曾任：</strong>貝類館網站製作人 / 校友會官網總製作人</li>
+                        <li><strong>學歷：</strong>文化大學體育系／赴英國國際足球學校受訓</li>
+                        <li><strong>經歷：</strong>中華女子國家代表隊(木蘭)總教練／長榮女足教練</li>
                     </ul>
                 </div>
-            </div>
-        </section>
 
-        <!-- 2. 專業服務類 -->
-        <section class="clean-group">
-            <div class="clean-group-header">
-                <h2>💻 專業服務類</h2>
-            </div>
-
-            <div class="alumni-compact-grid">
+                <!-- 陳柏睿 -->
                 <div class="alumni-compact-card">
                     <div class="alumni-compact-header">
                         <div class="alumni-compact-photo-box">
@@ -174,11 +149,9 @@
                             </div>
                         </div>
                     </div>
-                    
                     <ul class="alumni-compact-exp">
-                        <li><strong>現任：</strong>校友會官方網站總製作人</li>
-                        <li><strong>曾任：</strong>貝類館數位轉型專案負責人／網站製作人</li>
-                        <li><strong>曾任：</strong>長榮中學校務影像紀實攝影師</li>
+                        <li><strong>經歷：</strong>長榮中學首席攝影師／校慶與體育賽事特約紀錄攝影</li>
+                        <li><strong>專案：</strong>貝類館數位轉型專案負責人／校友會官網總製作人</li>
                     </ul>
                 </div>
             </div>
@@ -191,50 +164,307 @@
             </div>
 
             <div class="alumni-compact-grid">
+                <!-- 江清煙 -->
                 <div class="alumni-compact-card">
                     <div class="alumni-compact-header">
                         <div class="alumni-compact-photo-box">
-                            <img src="images/chen-bo-rui.jpg" alt="陳柏睿校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                            <img src="images/jiang-qing-yan.jpg" alt="江清煙校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
                         </div>
                         <div class="alumni-compact-info">
-                            <h3 class="alumni-compact-name">陳柏睿 <span class="alumni-suffix">校友</span></h3>
+                            <h3 class="alumni-compact-name">江清煙 <span class="alumni-suffix">校友</span></h3>
                             <div class="alumni-edu-tags">
-                                <span class="edu-chip">2024 國中部</span>
-                                <span class="edu-chip">2027 多媒體設計科</span>
+                                <span class="edu-chip">1965 年高中部</span>
                             </div>
                         </div>
                     </div>
-                    
                     <ul class="alumni-compact-exp">
-                        <li><strong>現任：</strong>校友會資訊系統與媒體典藏志工</li>
-                        <li><strong>曾任：</strong>長榮中學校慶與體育賽事特約紀錄攝影</li>
+                        <li><strong>經歷：</strong>長榮中學校友會 台北分會會長</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- 4. 教育學術類 -->
-        <section class="clean-group">
-            <div class="clean-group-header">
-                <h2>🎓 教育學術類</h2>
-            </div>
-            <p class="empty-notice">更多傑出校友名單整理與遴選中...</p>
-        </section>
-
-        <!-- 5. 社會服務類 -->
+        <!-- 4. 社會服務類 -->
         <section class="clean-group">
             <div class="clean-group-header">
                 <h2>🤝 社會服務類</h2>
             </div>
-            <p class="empty-notice">更多傑出校友名單整理與遴選中...</p>
+
+            <div class="alumni-compact-grid">
+                <!-- 黃昭弘 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/huang-zhao-hong.jpg" alt="黃昭弘校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">黃昭弘 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">1961 年高中部</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>學歷：</strong>政治大學政治研究所法學博士</li>
+                        <li><strong>經歷：</strong>真理大學第15屆董事長／東吳大學政治系主任／教會公報社理事長</li>
+                    </ul>
+                </div>
+
+                <!-- 潘恩盛 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/pan-en-sheng.jpg" alt="潘恩盛校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">潘恩盛 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">1983 年高中部</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>學歷：</strong>台南神學院牧範學博士</li>
+                        <li><strong>經歷：</strong>台灣基督教長老教會總會第70屆議長／長榮中學董事／鳳山教會牧師</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
-        <!-- 6. 企業經營類 -->
+        <!-- 5. 企業經營類 -->
         <section class="clean-group">
             <div class="clean-group-header">
                 <h2>🏢 企業經營類</h2>
             </div>
-            <p class="empty-notice">更多傑出校友名單整理與遴選中...</p>
+
+            <div class="alumni-compact-grid">
+                <!-- 莊寬裕 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/zhuang-kuan-yu.jpg" alt="莊寬裕校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">莊寬裕 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">1964 年高中部</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>經歷：</strong>長農企業有限公司董事長／屏科大畜牧獸醫系校友會理事長</li>
+                    </ul>
+                </div>
+
+                <!-- 謝文祥 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/xie-wen-xiang.jpg" alt="謝文祥校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">謝文祥 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">1985 年機械製圖科</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>現任：</strong>福爾摩沙遊艇酒店董事長</li>
+                    </ul>
+                </div>
+
+                <!-- 王多利 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/wang-duo-li.jpg" alt="王多利校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">王多利 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">1987 年高中部</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>現任：</strong>多利多國際食品創辦總執行長／海德農產蔬果貿易創辦執行長</li>
+                    </ul>
+                </div>
+
+                <!-- 陳勁宇 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/chen-jing-yu.jpg" alt="陳勁宇校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">陳勁宇 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">1988 年高中部</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>現任：</strong>亞聯仕國際驗證(股)公司董事長／NetZeroPro 服務平台創辦人</li>
+                    </ul>
+                </div>
+
+                <!-- 曾崇凱 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/zeng-chong-kai.jpg" alt="曾崇凱校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">曾崇凱 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">1989 年高中部</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>現任：</strong>康寧顯示科技大中華區總裁暨總經理／台灣美國商會副會長</li>
+                    </ul>
+                </div>
+
+                <!-- 王靖惠 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/wang-jing-hui.jpg" alt="王靖惠校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">王靖惠 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">1992 年美工科</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>現任：</strong>棠禧永續設計事業(股)董事長／TCIU 台灣聲響音產工業會創會理事長</li>
+                    </ul>
+                </div>
+
+                <!-- 胡竣甯 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/hu-jun-ning.jpg" alt="胡竣甯校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">胡竣甯 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">1999 年高中部</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>現任：</strong>四葉國際餐旅集團創辦人兼董事長／藍喜雅行旅董事長</li>
+                    </ul>
+                </div>
+
+                <!-- 侯勝敦 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/hou-sheng-dun.jpg" alt="侯勝敦校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">侯勝敦 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">1997 年國中部</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>現任：</strong>趣活文創總經理／台灣吉而好執行長／藍晒圖文創園區主委</li>
+                    </ul>
+                </div>
+
+                <!-- 蘇南彰 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/su-nan-zhang.jpg" alt="蘇南彰校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">蘇南彰 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">2001 年高中部</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>現任：</strong>燒肉研究所董事長（創立燒肉連鎖品牌）</li>
+                    </ul>
+                </div>
+
+                <!-- 吳光林 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/wu-guang-lin.jpg" alt="吳光林校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">吳光林 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">2000 年國中部</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>現任：</strong>光臨食品董事總經理／上智食品副總經理／台南市時代扶輪社社長</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. 專業服務類 -->
+        <section class="clean-group">
+            <div class="clean-group-header">
+                <h2>💻 專業服務類</h2>
+            </div>
+
+            <div class="alumni-compact-grid">
+                <!-- 錢鴻明 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/qian-hong-ming.jpg" alt="錢鴻明校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">錢鴻明 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">1997 年高中部</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>學歷：</strong>輔仁大學法律研究所碩士</li>
+                        <li><strong>經歷：</strong>臺南地方檢察署主任檢察官／屏東、橋頭地檢署主任檢察官</li>
+                    </ul>
+                </div>
+
+                <!-- 郭書辰 -->
+                <div class="alumni-compact-card">
+                    <div class="alumni-compact-header">
+                        <div class="alumni-compact-photo-box">
+                            <img src="images/guo-shu-chen.jpg" alt="郭書辰校友" class="alumni-compact-photo" onerror="this.src='cjshs.png'">
+                        </div>
+                        <div class="alumni-compact-info">
+                            <h3 class="alumni-compact-name">郭書辰 <span class="alumni-suffix">校友</span></h3>
+                            <div class="alumni-edu-tags">
+                                <span class="edu-chip">1998 年高中部 (應屆狀元)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="alumni-compact-exp">
+                        <li><strong>學歷：</strong>臺灣大學醫學系學士／陽明大學臨床醫學研究所博士</li>
+                        <li><strong>現任：</strong>國家衛生研究院研究員及臨床研究所副研究員級主治醫師</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
     </main>
