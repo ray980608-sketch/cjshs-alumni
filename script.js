@@ -399,29 +399,3 @@ function renderIndexNews() {
 
 // 頁面載入後自動觸發渲染
 document.addEventListener('DOMContentLoaded', renderIndexNews);
-
-// 載入 header.html
-fetch('header.html') // 或依據頁面位置 fetch 相對路徑
-  .then(response => response.text())
-  .then(html => {
-    document.getElementById('header-container').innerHTML = html;
-
-    // 判斷目前頁面是否在根目錄 (例如 index.html)
-    const isRoot = !window.location.pathname.includes('/about/') && 
-                   !window.location.pathname.includes('/alumni-services/') &&
-                   !window.location.pathname.includes('/love-school/') &&
-                   !window.location.pathname.includes('/news-record/');
-
-    if (isRoot) {
-      // 如果是在最外層的首頁，自動把 header 裡面所有 ../ 拿掉
-      const links = document.querySelectorAll('#header-container a, #header-container img');
-      links.forEach(el => {
-        ['href', 'src'].forEach(attr => {
-          const val = el.getAttribute(attr);
-          if (val && val.startsWith('../')) {
-            el.setAttribute(attr, val.replace(/^\.\.\//, ''));
-          }
-        });
-      });
-    }
-  });
