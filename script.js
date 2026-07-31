@@ -458,3 +458,36 @@ function getPathPrefix() {
 
     return '../'.repeat(Math.max(0, depth));
 }
+// 1. 先判斷目前頁面「是不是首頁」
+const isHomePage = window.location.pathname.endsWith('/') || 
+                   window.location.pathname.endsWith('/index.html');
+
+// 2. 根據所在位置，決定抓取 header.html 的路徑
+const headerPath = isHomePage ? './header.html' : '../header.html';
+
+fetch(headerPath)
+    .then(response => {
+        if (!response.ok) throw new Error('Header 載入失敗');
+        return response.text();
+    })
+    .then(html => {
+        const headerContainer = document.getElementById('header-container');
+        headerContainer.innerHTML = html;
+
+        // 3. 🎯 核心邏輯：
+        // 如果目前在【首頁】，把 header 裡面多餘的 ../ 全部拿掉（因為首頁就在最外層）
+        // 如果目前在【子資料夾分頁】，原本 header.html 裡的 ../ 就完全保留不用動！
+        if (isHomePage) {
+            const elements = headerContainer.querySelectorAll('a, img');
+            elements.forEach(el => {
+                ['href', 'src'].forEach(attr => {
+                    const val = el.getAttribute(attr);
+                    if (val && val.startsWith('../')) {
+                        // 把開頭的 ../ 替換掉，變成直接指向子資料夾或同層檔案
+                        el.setAttribute(attr, val.replace(/^\.\.\//, './'));
+                    }
+                });
+            });
+        }
+    })
+    .catch(err => console.error(err));

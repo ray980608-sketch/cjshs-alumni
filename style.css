@@ -4328,3 +4328,317 @@ img, video {
         display: none !important;
     }
 }
+/* ==========================================================================
+   新聞與社群動態區塊 (News Section & Cards)
+   ========================================================================== */
+
+/* 網格佈局：響應式 3 欄 */
+.news-custom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* 卡片基礎樣式 */
+.news-custom-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eef2f5;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* 圖片容器與封面圖 (共用內文第一張圖) */
+.news-card-img-box {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.news-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.news-custom-card:hover .news-card-img {
+    transform: scale(1.05);
+}
+
+/* 卡片內容區 */
+.news-card-inner {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* 日期與標籤 (含海報標註) */
+.news-card-meta {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.poster-tag {
+    background-color: #e3f2fd;
+    color: #1976d2;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* 標題 */
+.news-card-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+/* 50字內文摘要 */
+.news-card-paragraph {
+    font-size: 0.95rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    flex-grow: 1;
+}
+
+/* 閱讀全文按鈕 */
+.news-card-btn {
+    display: inline-block;
+    color: #1b365d; /* 長榮深藍色調 */
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.news-card-btn:hover {
+    color: #d4af37; /* 質感金 */
+    transform: translateX(3px);
+}
+
+
+/* ==========================================================================
+   獨立新聞內文頁面 (news1.html 內文頁樣式)
+   ========================================================================== */
+
+.news-detail-container {
+    max-width: 800px;
+    margin: 7rem auto;
+    padding: 0 1.5rem;
+}
+
+.article-header {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.article-title {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-top: 0.5rem;
+    line-height: 3.1;
+}
+
+/* 第一張大圖 (卡片封面圖共用) */
+.article-cover-box {
+    width: 100%;
+    max-height: 450px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2.2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.article-cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 文章內文 */
+.article-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333333;
+}
+
+.article-body p {
+    margin-bottom: 1.5rem;
+}
+
+/* 活動海報專用展示區 */
+.poster-box {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #1b365d;
+}
+
+.poster-box h3 {
+    font-size: 1.1rem;
+    color: #1b365d;
+    margin-bottom: 1rem;
+}
+
+.poster-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+/* ==========================================================================
+   📱 手機版專用新聞卡片（圖上文下 + 完美版面比例）
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* 1. 網格間距優化 */
+    .news-custom-grid {
+        gap: 1.25rem;
+        margin-top: 1rem;
+    }
+
+    /* 2. 維持圖上文下，卡片邊角圓潤化 */
+    .news-custom-card {
+        flex-direction: column;
+        border-radius: 12px;
+    }
+
+    /* 3. 圖片高度控制在 130px，橫向寬度 100% 不變形 */
+    .news-card-img-box {
+        width: 100%;
+        height: 130px;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .news-card-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* 4. 文字邊距與間距調整 */
+    .news-card-inner {
+        padding: 0.85rem 1rem 1rem 1rem;
+    }
+
+    .news-card-meta {
+        font-size: 0.72rem;
+        margin-bottom: 0.35rem;
+    }
+
+    /* 5. 標題：最多顯示 2 行 */
+    .news-card-heading {
+        font-size: 0.98rem;
+        line-height: 1.35;
+        margin-bottom: 0.4rem;
+        display: -webkit-box;
+        
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* 6. 摘要內容：重新放回，精準鎖定最多 2 行，補足視覺飽滿度 */
+    .news-card-paragraph {
+        display: -webkit-box !important;
+        
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        font-size: 0.82rem;
+        line-height: 1.45;
+        color: #666666;
+        margin-bottom: 0.6rem;
+    }
+
+    /* 7. 閱讀全文連結 */
+    .news-card-btn {
+        font-size: 0.85rem;
+    }
+}
+/* 電腦/平板預設標題大小 */
+.article-title {
+    font-size: 2.2rem;
+    line-height: 1.35;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 0.5rem;
+}
+
+/* 📱 手機端 (螢幕寬度 768px 以下) */
+@media (max-width: 768px) {
+    .article-title {
+        font-size: 1.4rem; /* 縮小到約 22px~24px，文字看起來舒服不壓迫 */
+        line-height: 1.4;  /* 稍微拉開行高，避免多行標題擠在一起 */
+    }
+}
+/* 活動相簿按鈕區塊 */
+.album-action-box {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* 主按鈕：單場相簿 */
+.btn-primary-album {
+    display: inline-block;
+    width: 100%;
+    max-width: 360px;
+    padding: 0.8rem 1.5rem;
+    background-color: #8B262A; /* 長榮紅/校徽配色 */
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(139, 38, 42, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-primary-album:hover {
+    background-color: #7A2B2E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(139, 38, 42, 0.3);
+}
+
+/* 次要按鈕：全部相簿/查看更多 */
+.btn-secondary-album {
+    display: inline-block;
+    color: #666666;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.btn-secondary-album:hover {
+    color: #8B262A;
+    text-decoration: underline;
+}

@@ -11,7 +11,73 @@
     <!-- ==========================================================================
          Section 1: 頂級大氣多層導覽列 (Advanced Dropdown Navigation)
          ========================================================================== -->
-    <div id="site-header-container"></div>
+    <!-- index.html 內 -->
+<header class="site-header">
+    <a href="index.html" class="brand-link">
+        <img src="cjshs.png" alt="長榮校徽" class="school-logo-img">
+        <div class="logo-title">
+            <span class="sub">我是長榮人</span>
+            <span class="main">星火回家</span>
+        </div>
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" class="menu-toggle-input">
+    <label for="menu-toggle" class="hamburger-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="about/about.html">關於我們</a></li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">活動訊息 ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#news">最新活動</a></li>
+                    <li class="nested-dropdown">
+                        <a href="#" class="nested-toggle">活動剪影 ▸</a>
+                        <ul class="nested-menu">
+                            <li><a href="news-record/galley-alumni.html">校友活動</a></li>
+                            <li><a href="gallery-students.html">在校生活動</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="alumni-services/alumni-services.html">校友服務</a></li>
+            <li><a href="books.html">母校長榮</a></li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">加入校友會 ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSe7tYzG9ApGoW6fAe0eO6XOte74KEQQxfrSMY1hhPNYBUpIfg/viewform" target="_blank">線上申請表單</a></li>
+                    <li><a href="profile-update.html">數位校友卡補發</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">長中人文 ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="people.html">長中人物誌</a></li>
+                    <li><a href="stories.html">長中歷史故事</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">愛校護校 ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="love-school/ancient-sites.html">古蹟認獻計劃</a></li>
+                    <li><a href="love-school/glory-inherit.html">母校榮譽繼承</a></li>
+                    <li><a href="love-school/equipment-update.html">軟硬體設備維護</a></li>
+                    <li><a href="love-school/support-others.html">其他技術支援</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
 
     <!-- ==========================================================================
          Hero Section: 主視覺區 (紅磚情懷大圖)
@@ -84,73 +150,25 @@
             </div>
         </div>
     </section>
-
-   <!-- ==========================================================================
-         Section 3: 最新消息與社群動態 (含封面圖獨立版)
-         ========================================================================== -->
-    <section class="news-custom-section" id="news">
-        <div class="news-custom-wrapper">
-            
-            <!-- 區塊標題區 -->
-            <div class="news-custom-header">
-                <span class="news-custom-tag">NEWS & INSIGHTS</span>
-                <h2 class="news-custom-title">最新消息 · 社群動態</h2>
-            </div>
-
-            <!-- 卡片三欄網格 -->
-            <div class="news-custom-grid">
-                
-                <!-- 卡片 1：星火計畫 (金邊強調卡) -->
-                <article class="news-custom-card gold-border">
-                    <div class="news-card-img-box">
-                        <img src="images/cjshs-alumni.jpg" alt="星火計畫" class="news-card-img">
-                    </div>
-                    <div class="news-card-inner">
-                        <span class="news-card-meta">2026.06.01 · 計畫公告</span>
-                        <h3 class="news-card-heading">「我是長榮人——星火計畫」正式啟航</h3>
-                        <p class="news-card-paragraph">
-                            跨越百年，母校培育超過八萬名校友。我們正式發起星火計畫，串聯全球校友力量，打造專屬長榮人的互助生態圈。
-                        </p>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe7tYzG9ApGoW6fAe0eO6XOte74KEQQxfrSMY1hhPNYBUpIfg/viewform" target="_blank" class="news-card-btn">參與星火計畫 ➔</a>
-                    </div>
-                </article>
-
-                <!-- 卡片 2：母校榮譽 -->
-                <article class="news-custom-card">
-                    <div class="news-card-img-box">
-                        <img src="images/beta.png" alt="母校榮譽" class="news-card-img">
-                    </div>
-                    <div class="news-card-inner">
-                        <span class="news-card-meta">2026.05.01 · 母校榮譽</span>
-                        <h3 class="news-card-heading">賀！學弟妹榮獲全國技能競賽特優</h3>
-                        <p class="news-card-paragraph">
-                            長榮之光！多媒體設計科同學於全國技能競賽中，以高技術水準作品斬獲特優殊榮，校友會全體同仁致上熱烈祝賀。
-                        </p>
-                        <a href="#" class="news-card-btn">閱讀報導 ➔</a>
-                    </div>
-                </article>
-
-                <!-- 卡片 2：母校榮譽 -->
-                <article class="news-custom-card">
-                    <div class="news-card-img-box">
-                        <img src="images/beta.png" alt="母校榮譽" class="news-card-img">
-                    </div>
-                    <div class="news-card-inner">
-                        <span class="news-card-meta">2026.05.01 · 母校榮譽</span>
-                        <h3 class="news-card-heading">賀！學弟妹榮獲全國技能競賽特優</h3>
-                        <p class="news-card-paragraph">
-                            長榮之光！多媒體設計科同學於全國技能競賽中，以高技術水準作品斬獲特優殊榮，校友會全體同仁致上熱烈祝賀。
-                        </p>
-                        <a href="#" class="news-card-btn">閱讀報導 ➔</a>
-                    </div>
-                </article>
-
-
-
-            
-
+    <!-- ==========================================================================
+     Section 3: 最新消息與社群動態 (動態渲染區)
+     ========================================================================== -->
+<section class="news-custom-section" id="news">
+    <div class="news-custom-wrapper">
+        
+        <!-- 區塊標題區 -->
+        <div class="news-custom-header">
+            <span class="news-custom-tag">NEWS & INSIGHTS</span>
+            <h2 class="news-custom-title">最新消息 · 社群動態</h2>
         </div>
-    </section>
+
+        <!-- 卡片三欄網格 (由 script.js 動態渲染) -->
+        <div class="news-custom-grid" id="index-news-container">
+            <!-- 動態注入新聞卡片 -->
+        </div>
+
+    </div>
+</section>
 
     <!-- ==========================================================================
          Footer Section: 首頁專用一體化頁尾 (含感性導流 CTA 與社群按鈕)
