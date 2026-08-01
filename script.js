@@ -491,3 +491,31 @@ fetch(headerPath)
         }
     })
     .catch(err => console.error(err));
+
+    // 確保 DOM 載入後執行
+document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const storyItems = document.querySelectorAll('.story-item');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // 1. 切換按鈕 active 樣式
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            // 2. 取得點擊的分類名稱
+            const selectedCategory = button.getAttribute('data-category');
+
+            // 3. 篩選故事清單
+            storyItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+
+                if (selectedCategory === 'all' || itemCategory === selectedCategory) {
+                    item.style.display = 'flex'; // 顯示符合條件的項目
+                } else {
+                    item.style.display = 'none'; // 隱藏不符合的項目
+                }
+            });
+        });
+    });
+});

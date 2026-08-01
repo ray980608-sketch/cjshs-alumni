@@ -4642,3 +4642,174 @@ img, video {
     color: #8B262A;
     text-decoration: underline;
 }
+
+/* ==========================================
+   高密度故事清單 (Compact Story List)
+   ========================================== */
+
+.stories-compact-container {
+    max-width: 800px; /* 縮窄內容寬度，讓清單讀起來更舒適 */
+    margin: 0 auto;
+    padding: 7rem 1rem 4rem;
+}
+
+.compact-intro {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.compact-intro .page-title {
+    font-size: 2rem;
+    color: #8B262A;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.compact-intro .page-subtitle {
+    font-size: 0.9rem;
+    color: #666666;
+}
+
+/* 分類篩選按鈕列 (水平滑動，極省空間) */
+.category-filter {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+}
+
+.category-filter::-webkit-scrollbar {
+    display: none; /* 隱藏捲軸保持乾淨 */
+}
+
+.filter-btn {
+    white-space: nowrap;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: #555555;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: #8B262A;
+    color: #ffffff;
+    border-color: #8B262A;
+}
+
+/* 故事清單容器 */
+.story-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+/* 單個故事清單項目 (Row View) */
+.story-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1rem;
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.story-item:hover {
+    border-color: #8B262A;
+    background-color: #fdf8f8;
+    transform: translateX(3px); /* 懸浮微向右滑 */
+}
+
+.story-item-left {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    overflow: hidden;
+}
+
+/* 類別徽章 */
+.story-badge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.badge-building {
+    background-color: #f3e9e9;
+    color: #8B262A;
+}
+
+.badge-person {
+    background-color: #eaf2f8;
+    color: #1b4f72;
+}
+
+/* 標題與補充資訊 */
+.story-item-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    overflow: hidden;
+}
+
+.story-item-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333333;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* 超過螢幕自動變 ... */
+}
+
+.story-item-date {
+    font-size: 0.78rem;
+    color: #888888;
+}
+
+.story-arrow {
+    color: #ccc;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.story-item:hover .story-arrow {
+    color: #8B262A;
+}
+
+/* 📱 手機微調 */
+@media (max-width: 480px) {
+    .story-item {
+        padding: 0.75rem 0.8rem;
+    }
+    
+    .story-item-title {
+        font-size: 0.95rem;
+    }
+}
+/* 讓隱藏/顯示時切換更自然 */
+.story-item {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
