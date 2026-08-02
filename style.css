@@ -4813,3 +4813,35 @@ img, video {
         transform: translateY(0);
     }
 }
+
+/* ==========================================
+   修正單卡片排版：靠左、佔滿整排 (參考範例)
+   ========================================== */
+
+/* 確保 compact-grid 容器恢復單欄區塊排版 */
+.clean-grid.compact-grid {
+    display: block !important;  /* 🛠️ 強制恢復成區塊排版 (不再用 Flex 或 Grid) */
+    width: 100%;               /* 佔滿父容器寬度 */
+    max-width: 100% !important; /* 確保不被限制寬度 */
+    margin-left: 0;            /* 🛠️ 強制靠左 */
+    margin-right: 0;
+    padding: 0;                /* 移除可能的內邊距 */
+}
+
+/* 針對 compact-grid 裡的卡片進行樣式修正 */
+.clean-grid.compact-grid .clean-card {
+    display: block;            /* 卡片本身為區塊元素 */
+    width: 100% !important;     /* 🛠️ 強制卡片橫向佔滿 100% */
+    max-width: 100% !important; /* 🛠️ 強制移除任何最大寬度限制 */
+    box-sizing: border-box;     /* 確保邊框和內邊距不影響寬度計算 */
+    margin-bottom: 1rem;       /* 增加底部間距 (如果有第二張卡片) */
+    text-align: left;           /* 🛠️ 確保文字靠左 */
+}
+
+/* 電腦寬螢幕 (992px 以上) 的特定修正 */
+@media (min-width: 992px) {
+    /* 🛠️ 如果你的卡片內部元素原本是 flex 且被縮小，要在這裡強制改回靠左 */
+    .clean-grid.compact-grid .clean-card {
+        flex: 0 1 100% !important; /* 強制基礎寬度為 100% 且不放大縮小 */
+    }
+}
