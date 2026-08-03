@@ -4845,3 +4845,50 @@ img, video {
         flex: 0 1 100% !important; /* 強制基礎寬度為 100% 且不放大縮小 */
     }
 }
+
+/* ==========================================
+   頁尾瀏覽人數計數器 (Footer Counter)
+   ========================================== */
+
+.site-counter-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.05); /* 輕微暗色背景 */
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #555;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    margin: 0.8rem 0;
+}
+
+/* 數字樣式：高對比、等寬字型讓數字看起來更專業 */
+.counter-number {
+    font-weight: 700;
+    color: #b22222; /* 磚紅色，契合母校紅磚主題 */
+    font-family: 'Courier New', Courier, monospace; /* 等寬字型 */
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+}
+
+/* 載入中的動畫樣式 */
+.loading-dots {
+    font-size: 0.8rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* ==========================================
+   僅針對原本的 site-counter-box 做水平置中 (含手機版)
+   ========================================== */
+
+.site-counter-box {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin: 1.5rem auto 0 auto !important; /* 利用 auto 邊距讓整個區塊水平置中 */
+    width: fit-content !important;        /* 寬度隨內容調整，確保 margin: auto 生效 */
+}
+

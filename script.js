@@ -519,3 +519,59 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// 簡單的前端計數器展示 (若無後端可先用此邏輯模擬)
+document.addEventListener('DOMContentLoaded', () => {
+    const counterEl = document.getElementById('busuanzi_value_site_pv');
+    if (counterEl && !window.busuanzi) {
+        // 設定一個初始基礎人數 + 本地瀏覽次數
+        let baseCount = 0; 
+        let localVisits = parseInt(localStorage.getItem('site_visits') || '0') + 1;
+        localStorage.setItem('site_visits', localVisits);
+        
+        let total = baseCount + localVisits;
+        counterEl.textContent = total.toLocaleString(); // 轉成 0 格式
+    }
+});
+
+// 在你的 script.js 載入完 footer.html 的邏輯最後面加上這段：
+if (window.bszCaller) {
+    window.bszCaller.fetch("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function() {});
+}
+
+// 假設這是你 script.js 裡面載入 footer 的邏輯
+fetch(footerPath)
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('site-footer-container').innerHTML = data;
+        
+        // 🛠️ 關鍵修正：當 Footer 塞進 HTML 後，無論在哪個資料夾，都重新動態載入一次不蒜子腳本
+        const busuanziScript = document.createElement('script');
+        busuanziScript.src = '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
+        busuanziScript.async = true;
+        document.body.appendChild(busuanziScript);
+    });
+
+    // 🛠️ 強制統一全站的不蒜子統計基準為首頁網址
+const script = document.createElement('script');
+script.id = 'busuanzi-script';
+script.src = '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
+script.async = true;
+
+// 關鍵：將 referral / location 的計算基準鎖定在網站根目錄 (首頁)
+window.bszCaller = {
+    fetch: function(a, b) {
+        var c = "busuanziCallback_" + Math.floor(16 * Math.random());
+        window[c] = function(a) {
+            b(a);
+            document.head.removeChild(d);
+            delete window[c];
+        };
+        var d = document.createElement("script");
+        // 強制把發送給不蒜子的 url 鎖定在首頁域名
+        d.src = a + "?jsonpCallback=" + c;
+        document.head.appendChild(d);
+    }
+};
+
+document.body.appendChild(script);
