@@ -4891,4 +4891,31 @@ img, video {
     margin: 1.5rem auto 0 auto !important; /* 利用 auto 邊距讓整個區塊水平置中 */
     width: fit-content !important;        /* 寬度隨內容調整，確保 margin: auto 生效 */
 }
+/* 願景區塊標題與宗旨排版優化 */
+.vision-lead-text {
+    max-width: 760px;
+    margin: 1rem auto 1.5rem auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4a5568;
+    text-align: center;
+}
 
+.vision-quote {
+    display: inline-block;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #b8860b; /* 經典金 */
+    letter-spacing: 1px;
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding: 0 1rem;
+}
+
+.card-subtitle-text {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #b8860b;
+    margin-top: -0.4rem;
+    margin-bottom: 0.8rem;
+}
