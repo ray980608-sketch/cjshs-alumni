@@ -4928,3 +4928,28 @@ img, video {
     margin-top: 0.2rem;
     margin-bottom: 1rem;
 }
+/* 導覽列品牌 Logo 圖檔樣式 */
+.brand-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0px 0;
+}
+
+.site-logo-img {
+    height: 60px; /* 根據導覽列高度調整，建議維持在 48px~56px 之間 */
+    width: auto;  /* 自動維持原圖比例 */
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.brand-link:hover .site-logo-img {
+    transform: scale(1.02); /* 滑鼠懸停微放大 */
+}
+
+/* 手機版 RWD 微調 */
+@media (max-width: 768px) {
+    .site-logo-img {
+        height: 42px; /* 手機版適度縮小避免擠壓漢堡選單 */
+    }
+}
